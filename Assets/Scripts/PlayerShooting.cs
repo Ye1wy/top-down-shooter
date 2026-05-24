@@ -29,6 +29,14 @@ public class PlayerShooting : MonoBehaviour
                 Shoot();
                 ammoCount--;
                 UpdateAmmoUI();
+
+                if (TelemetryManager.Instance != null)
+                    TelemetryManager.Instance.RegisterShotFired();
+            }
+            else
+            {
+                if (TelemetryManager.Instance != null)
+                    TelemetryManager.Instance.RegisterAmmoEmpty();
             }
         }
     }

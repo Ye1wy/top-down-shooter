@@ -18,6 +18,9 @@ public class Bullet : MonoBehaviour
         {
             Instantiate(enemyDeathVFXPrefab, collision.gameObject.transform.position, Quaternion.Euler(90, 0, 0));
             Destroy(collision.gameObject);
+
+            if (TelemetryManager.Instance != null)
+                TelemetryManager.Instance.RegisterShotHit();
         }
 
         // Исчезает при попадании во что-либо (стену, врага)

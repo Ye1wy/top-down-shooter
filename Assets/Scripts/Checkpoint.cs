@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
+    [SerializeField] private int checkpointIndex = 0;
+    [SerializeField] private float progressPercent = 0f;
+
     private bool hasActivated = false;
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -13,6 +16,9 @@ public class Checkpoint : MonoBehaviour
             return;
 
         hasActivated = true;
+
+        if (TelemetryManager.Instance != null)
+            TelemetryManager.Instance.RegisterCheckpointReached(checkpointIndex, progressPercent);
 
         CheckpointData.HasCheckpoint = true;
         CheckpointData.Position = other.transform.position;

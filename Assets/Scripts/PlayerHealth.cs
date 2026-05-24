@@ -29,6 +29,9 @@ public class PlayerHealth : MonoBehaviour
         if (isDead) return;
 
         currentHealth -= amount;
+        if (TelemetryManager.Instance != null)
+            TelemetryManager.Instance.RegisterDamageTaken(amount, currentHealth);
+
         UpdateHealthUI();
         Debug.Log("Получен урон! HP: " + currentHealth);
 
@@ -50,6 +53,10 @@ public class PlayerHealth : MonoBehaviour
     {
         isDead = true;
         IsPlayerAlive = false;
+
+        if (TelemetryManager.Instance != null)
+            TelemetryManager.Instance.RegisterDeath(transform.position);
+
         Debug.Log("Respawn: Игрок погиб");
 
         if (DeathVFXPrefab != null)
@@ -71,6 +78,9 @@ public class PlayerHealth : MonoBehaviour
 
     private void Respawn()
     {
+        if (TelemetryManager.Instance != null)
+            TelemetryManager.Instance.RegisterRespawn();
+
         Debug.Log("Игрок погиб, возрождение");
 
         // Позиция: чекпоинт или старт
@@ -125,6 +135,10 @@ public class PlayerHealth : MonoBehaviour
     }
 
     public static bool IsPlayerAlive { get; private set; } = true;
+
+    public int CurrentHealth => currentHealth;
+
+    public int MaxHealth => maxHealth;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
     private static void ResetAliveState()
