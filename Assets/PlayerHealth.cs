@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -5,11 +6,13 @@ public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private int maxHealth = 3;
     [SerializeField] private ParticleSystem DeathVFXPrefab;
+    [SerializeField] private float deathDelay = 1.5f;
 
 
     private int currentHealth;
     private Vector3 startPosition;
     private Rigidbody2D rb;
+    private bool isDead = false;
 
     private void Awake()
     {
@@ -21,12 +24,14 @@ public class PlayerHealth : MonoBehaviour
     // Публичный — чтобы враг мог нанести урон извне
     public void TakeDamage(int amount)
     {
+        if (isDead) return;
+
         currentHealth -= amount;
         Debug.Log("Получен урон! HP: " + currentHealth);
 
         if (currentHealth <= 0)
         {
-            Respawn();
+            StartCoroutine(DeathRoutine());
         }
     }
 
@@ -36,6 +41,29 @@ public class PlayerHealth : MonoBehaviour
         Instantiate(DeathVFXPrefab, transform.position, Quaternion.Euler(90, 0, 0));
         Destroy(gameObject);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    private IEnumerator DeathRoutine()
+    {
+        isDead = true;
+        IsPlayerAlive = false;
+        Debug.Log("Respawn: Игрок погиб");
+
+        if (DeathVFXPrefab != null)
+        {
+            Instantiate(DeathVFXPrefab, transform.position, Quaternion.Euler(90, 0, 0));
+        }
+
+        rb.linearVelocity = Vector2.zero;
+        SetPlayerActive(false);
+
+        yield return new WaitForSeconds(deathDelay);
+
+        Respawn();
+
+        SetPlayerActive(true);
+        isDead = false;
+        IsPlayerAlive = true;
     }
 
     private void Respawn()
@@ -73,4 +101,23 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = maxHealth;
         Debug.Log("Здоровье восстановлено! HP: " + currentHealth);
     }
+
+    private void SetPlayerActive(bool active)
+    {
+        // Спрайт может быть на дочернем объекте — выключаем все найденные
+        SpriteRenderer[] sprites = GetComponentsInChildren<SpriteRenderer>();
+        foreach (SpriteRenderer sprite in sprites)
+            sprite.enabled = active;
+
+        Collider2D col = GetComponent<Collider2D>();
+        if (col != null) col.enabled = active;
+
+        PlayerMovement movement = GetComponent<PlayerMovement>();
+        if (movement != null) movement.enabled = active;
+
+        PlayerShooting shooting = GetComponent<PlayerShooting>();
+        if (shooting != null) shooting.enabled = active;
+    }
+
+    public static bool IsPlayerAlive { get; private set; } = true;
 }
