@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 // Любой расходуемый объект (пикап, спавнер) умеет откатываться
 public interface IConsumable
@@ -26,6 +27,12 @@ public static class WorldState
     {
         foreach (IConsumable item in consumedSinceCheckpoint)
             item.Rollback();
+        consumedSinceCheckpoint.Clear();
+    }
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    private static void ResetState()
+    {
         consumedSinceCheckpoint.Clear();
     }
 }

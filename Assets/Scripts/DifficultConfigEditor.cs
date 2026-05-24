@@ -15,18 +15,18 @@ public class DifficultConfigEditor : Editor
 
         GUI.backgroundColor = Color.green;
 
-        if (GUILayout.Button("Save Current Ammo", GUILayout.Height(40)))
+        if (GUILayout.Button("Save Current Level", GUILayout.Height(40)))
         {
-            config.SaveCurrentAmmo();
+            config.SaveCurrentLevel();
 
             EditorUtility.SetDirty(config);
         }
 
         GUI.backgroundColor = Color.cyan;
 
-        if (GUILayout.Button("Load Current Ammo", GUILayout.Height(40)))
+        if (GUILayout.Button("Load Current Level", GUILayout.Height(40)))
         {
-            config.LoadCurrentAmmo();
+            config.LoadCurrentLevel();
         }
 
         GUI.backgroundColor = Color.white;

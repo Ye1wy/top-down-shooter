@@ -11,14 +11,45 @@ public class EnemySpawner : MonoBehaviour, IConsumable
 
     private bool hasTriggered = false;
 
+    public SpawnTrigger Trigger => spawnTrigger;
+    public GameObject EnemyPrefab => enemyPrefab;
+    public int EnemyCount => enemyCount;
+    public float SpawnInterval => spawnInterval;
+    public float SpawnRadius => spawnRadius;
+
+    public void SetTrigger(SpawnTrigger trigger)
+    {
+        spawnTrigger = trigger;
+    }
+
+    public void Configure(GameObject prefab, int count, float interval, float radius)
+    {
+        enemyPrefab = prefab;
+        enemyCount = count;
+        spawnInterval = interval;
+        spawnRadius = radius;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(transform.position, spawnRadius);
+    }
+
     private void Awake()
     {
-        spawnTrigger.Triggered += OnTriggered;
+        if (spawnTrigger != null)
+        {
+            spawnTrigger.Triggered += OnTriggered;
+        }
     }
 
     private void OnDisable()
     {
-        spawnTrigger.Triggered -= OnTriggered;
+        if (spawnTrigger != null)
+        {
+            spawnTrigger.Triggered -= OnTriggered;
+        }
     }
 
     private void OnTriggered()

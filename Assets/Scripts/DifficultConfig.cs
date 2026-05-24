@@ -8,126 +8,276 @@ public class DifficultConfig : ScriptableObject
 {
     public Difficult.DifficultType CurrentDifficult;
 
+    [Header("Prefabs")]
     [SerializeField] private AmmoPickup ammoPrefab;
+    [SerializeField] private Checkpoint checkpointPrefab;
+    [SerializeField] private GameObject spawnerPrefab;   // только EnemySpawner (префаб-ассет!)
+    [SerializeField] private GameObject triggerPrefab;   // только SpawnTrigger + коллайдер (префаб-ассет!)
+    [SerializeField] private GameObject[] enemyPrefabs;   // реестр типов врагов, индекс = тип
 
-    // JSON хранится прямо в ScriptableObject
     [SerializeField, TextArea(10, 30)]
-    private string ammoJson;
+    private string levelJson;
 
-    [ContextMenu(nameof(SaveCurrentAmmo))]
-    public void SaveCurrentAmmo()
+    // ---------- СОХРАНЕНИЕ ----------
+    [ContextMenu(nameof(SaveCurrentLevel))]
+    public void SaveCurrentLevel()
     {
         var saveData = LoadSaveData();
 
-        var currentAmmo = new AmmoLevelData();
-        currentAmmo.Find();
-
-        // обновляем данные для текущей сложности
-        var existing = saveData.Levels
-            .FirstOrDefault(x => x.DifficultType == CurrentDifficult);
-
-        if (existing != null)
+        var level = saveData.Levels.FirstOrDefault(x => x.DifficultType == CurrentDifficult);
+        if (level == null)
         {
-            existing.Positions = currentAmmo.Positions;
+            level = new DifficultLevelData { DifficultType = CurrentDifficult };
+            saveData.Levels.Add(level);
         }
-        else
+
+        level.AmmoPositions = FindAll<AmmoPickup>().Select(a => a.transform.position).ToList();
+        level.Checkpoints = FindAll<Checkpoint>().Select(c =>
+                {
+                    var box = c.GetComponent<BoxCollider2D>();
+                    return new CheckpointEntry
+                    {
+                        Position = c.transform.position,
+                        RotationZ = c.transform.eulerAngles.z,
+                        Scale = c.transform.localScale,
+                        ColliderSize = box != null ? box.size : Vector2.one,
+                        ColliderOffset = box != null ? box.offset : Vector2.zero
+                    };
+                }).ToList();
+
+        // Триггеры: плоский список позиций + словарь для индексов
+        var triggers = FindAll<SpawnTrigger>().ToList();
+        level.Triggers = triggers.Select(t =>
         {
-            saveData.Levels.Add(new AmmoLevelEntry
+            var box = t.GetComponent<BoxCollider2D>();
+            return new TriggerEntry
             {
-                DifficultType = CurrentDifficult,
-                Positions = currentAmmo.Positions
-            });
-        }
+                Position = t.transform.position,
+                RotationZ = t.transform.eulerAngles.z,
+                Scale = t.transform.localScale,
+                ColliderSize = box != null ? box.size : Vector2.one,
+                ColliderOffset = box != null ? box.offset : Vector2.zero
+            };
+        }).ToList();
 
-        ammoJson = JsonUtility.ToJson(saveData, true);
+        // Спавнеры: позиция + ссылка на триггер по индексу + настройки
+        level.Spawners = FindAll<EnemySpawner>().Select(s =>
+        {
+            int triggerIndex = s.Trigger != null ? triggers.IndexOf(s.Trigger) : -1;
 
+            if (s.Trigger != null && triggerIndex < 0)
+                Debug.LogWarning($"Спавнер {s.name}: его триггер не найден в общем списке.");
+            if (Array.IndexOf(enemyPrefabs, s.EnemyPrefab) < 0)
+                Debug.LogWarning($"Спавнер {s.name}: префаб врага не в массиве Enemy Prefabs.");
+
+            return new SpawnerEntry
+            {
+                SpawnerPosition = s.transform.position,
+                TriggerIndex = triggerIndex,
+                EnemyPrefabIndex = Array.IndexOf(enemyPrefabs, s.EnemyPrefab),
+                EnemyCount = s.EnemyCount,
+                SpawnInterval = s.SpawnInterval,
+                SpawnRadius = s.SpawnRadius
+            };
+        }).ToList();
+
+        levelJson = JsonUtility.ToJson(saveData, true);
 #if UNITY_EDITOR
         UnityEditor.EditorUtility.SetDirty(this);
 #endif
-
-        Debug.Log($"Ammo saved for difficulty: {CurrentDifficult}");
+        Debug.Log($"Saved {CurrentDifficult}: триггеров {level.Triggers.Count}, спавнеров {level.Spawners.Count}.");
     }
 
-    [ContextMenu(nameof(LoadCurrentAmmo))]
-    public void LoadCurrentAmmo()
+    // ---------- ЗАГРУЗКА ----------
+    [ContextMenu(nameof(LoadCurrentLevel))]
+    public void LoadCurrentLevel()
     {
-        ClearCurrentAmmo();
-
-        var saveData = LoadSaveData();
-
-        var levelData = saveData.Levels
-            .FirstOrDefault(x => x.DifficultType == CurrentDifficult);
-
-        if (levelData == null)
+        if (spawnerPrefab == null || triggerPrefab == null)
         {
-            Debug.LogWarning($"No ammo data for difficulty: {CurrentDifficult}");
+            Debug.LogError("Spawner Prefab или Trigger Prefab не назначен — загрузка отменена.");
             return;
         }
 
-        var ammoParent = FindFirstObjectByType<AmmoParent>();
+        ClearCurrentLevel();
 
-        foreach (var position in levelData.Positions)
+        var saveData = LoadSaveData();
+        var level = saveData.Levels.FirstOrDefault(x => x.DifficultType == CurrentDifficult);
+        if (level == null)
         {
-            var ammo = Instantiate(ammoPrefab, position, Quaternion.identity);
+            Debug.LogWarning($"Нет данных для сложности {CurrentDifficult}.");
+            return;
+        }
 
-            if (ammoParent != null)
+        // Патроны
+        var ammoParent = FindFirstObjectByType<AmmoParent>();
+        foreach (var pos in level.AmmoPositions)
+        {
+            var ammo = Instantiate(ammoPrefab, pos, Quaternion.identity);
+            if (ammoParent != null) ammo.transform.SetParent(ammoParent.transform);
+        }
+
+        // Чекпоинты
+        var checkpointRoot = GetOrCreateCheckpointRoot();
+        foreach (var data in level.Checkpoints)
+        {
+            var obj = Instantiate(checkpointPrefab, data.Position,
+                Quaternion.Euler(0f, 0f, data.RotationZ), checkpointRoot.transform);
+            obj.transform.localScale = data.Scale;
+
+            var box = obj.GetComponent<BoxCollider2D>();
+            if (box != null)
             {
-                ammo.transform.SetParent(ammoParent.transform);
+                box.size = data.ColliderSize;
+                box.offset = data.ColliderOffset;
             }
         }
 
-        Debug.Log($"Ammo loaded for difficulty: {CurrentDifficult}");
+        // Корень Spawners (создаём, если нет)
+        var root = GetOrCreateSpawnerRoot();
+
+        // Триггеры — плоско под Spawners, запоминаем по индексу
+        var triggers = new SpawnTrigger[level.Triggers.Count];
+        for (int i = 0; i < level.Triggers.Count; i++)
+        {
+            var data = level.Triggers[i];
+
+            var obj = Instantiate(triggerPrefab, data.Position,
+                Quaternion.Euler(0f, 0f, data.RotationZ), root.transform);
+            obj.name = $"SpawnTrigger ({i})";
+            obj.transform.localScale = data.Scale;
+
+            var box = obj.GetComponent<BoxCollider2D>();
+            if (box != null)
+            {
+                box.size = data.ColliderSize;
+                box.offset = data.ColliderOffset;
+            }
+
+            triggers[i] = obj.GetComponent<SpawnTrigger>();
+        }
+        // Спавнеры — плоско под Spawners, каждый привязываем к своему триггеру
+        for (int i = 0; i < level.Spawners.Count; i++)
+        {
+            var data = level.Spawners[i];
+
+            var obj = Instantiate(spawnerPrefab, data.SpawnerPosition, Quaternion.identity, root.transform);
+            obj.name = $"Spawner ({i})";
+
+            var spawner = obj.GetComponent<EnemySpawner>();
+            if (spawner == null)
+            {
+                Debug.LogError("На Spawner Prefab нет компонента EnemySpawner.");
+                continue;
+            }
+
+            SpawnTrigger trigger = (data.TriggerIndex >= 0 && data.TriggerIndex < triggers.Length)
+                ? triggers[data.TriggerIndex]
+                : null;
+            spawner.SetTrigger(trigger);
+
+            var enemyPrefab = (data.EnemyPrefabIndex >= 0 && data.EnemyPrefabIndex < enemyPrefabs.Length)
+                ? enemyPrefabs[data.EnemyPrefabIndex]
+                : null;
+            spawner.Configure(enemyPrefab, data.EnemyCount, data.SpawnInterval, data.SpawnRadius);
+        }
+
+        Debug.Log($"Loaded {CurrentDifficult}: триггеров {triggers.Length}, спавнеров {level.Spawners.Count}.");
+    }
+
+    // ---------- ВСПОМОГАТЕЛЬНОЕ ----------
+    private void ClearCurrentLevel()
+    {
+        DestroyAll<AmmoPickup>();
+        DestroyAll<Checkpoint>();
+        DestroyAll<EnemySpawner>();
+        DestroyAll<SpawnTrigger>();
+    }
+
+    private SpawnerParent GetOrCreateSpawnerRoot()
+    {
+        var root = FindFirstObjectByType<SpawnerParent>(FindObjectsInactive.Include);
+        if (root == null)
+        {
+            var go = new GameObject("Spawners");
+            root = go.AddComponent<SpawnerParent>();
+            Debug.Log("Создан корень Spawners (SpawnerParent отсутствовал).");
+        }
+        return root;
+    }
+
+    private CheckpointParent GetOrCreateCheckpointRoot()
+    {
+        var root = FindFirstObjectByType<CheckpointParent>(FindObjectsInactive.Include);
+        if (root == null)
+        {
+            var go = new GameObject("Checkpoints");
+            root = go.AddComponent<CheckpointParent>();
+            Debug.Log("Создан корень Checkpoints (CheckpointParent отсутствовал).");
+        }
+        return root;
+    }
+
+    private static T[] FindAll<T>() where T : Component =>
+        FindObjectsByType<T>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+
+    private static void DestroyAll<T>() where T : Component
+    {
+        foreach (var obj in FindAll<T>())
+            DestroyImmediate(obj.gameObject);
     }
 
     private SaveData LoadSaveData()
     {
-        if (string.IsNullOrWhiteSpace(ammoJson))
-        {
+        if (string.IsNullOrWhiteSpace(levelJson))
             return new SaveData();
-        }
 
-        return JsonUtility.FromJson<SaveData>(ammoJson) ?? new SaveData();
+        return JsonUtility.FromJson<SaveData>(levelJson) ?? new SaveData();
     }
 
-    private void ClearCurrentAmmo()
-    {
-        foreach (var ammo in FindObjectsByType<AmmoPickup>(
-                     FindObjectsInactive.Exclude,
-                     FindObjectsSortMode.None))
-        {
-            DestroyImmediate(ammo.gameObject);
-        }
-    }
-
+    // ---------- ДАННЫЕ ----------
     [Serializable]
     public class SaveData
     {
-        public List<AmmoLevelEntry> Levels = new();
+        public List<DifficultLevelData> Levels = new();
     }
 
     [Serializable]
-    public class AmmoLevelEntry
+    public class DifficultLevelData
     {
         public Difficult.DifficultType DifficultType;
-        public List<Vector3> Positions = new();
+        public List<Vector3> AmmoPositions = new();
+        public List<CheckpointEntry> Checkpoints = new();
+        public List<TriggerEntry> Triggers = new();
+        public List<SpawnerEntry> Spawners = new();
     }
 
     [Serializable]
-    public class AmmoLevelData
+    public class SpawnerEntry
     {
-        [SerializeField] private List<Vector3> positions = new();
+        public Vector3 SpawnerPosition;
+        public int TriggerIndex;        // индекс в TriggerPositions, -1 если без триггера
+        public int EnemyPrefabIndex;
+        public int EnemyCount;
+        public float SpawnInterval;
+        public float SpawnRadius;
+    }
+    [Serializable]
+    public class TriggerEntry
+    {
+        public Vector3 Position;
+        public Vector3 Scale = Vector3.one;
+        public float RotationZ;
+        public Vector2 ColliderSize = Vector2.one;
+        public Vector2 ColliderOffset;
+    }
 
-        public List<Vector3> Positions => positions;
-
-        public void Find()
-        {
-            positions.Clear();
-
-            positions.AddRange(
-                FindObjectsByType<AmmoPickup>(
-                        FindObjectsInactive.Exclude,
-                        FindObjectsSortMode.None)
-                    .Select(ammo => ammo.transform.position));
-        }
+    [Serializable]
+    public class CheckpointEntry
+    {
+        public Vector3 Position;
+        public Vector3 Scale = Vector3.one;
+        public float RotationZ;
+        public Vector2 ColliderSize = Vector2.one;
+        public Vector2 ColliderOffset;
     }
 }

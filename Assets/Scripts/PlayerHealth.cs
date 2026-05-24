@@ -1,13 +1,14 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private int maxHealth = 3;
     [SerializeField] private ParticleSystem DeathVFXPrefab;
     [SerializeField] private float deathDelay = 1.5f;
-
+    [SerializeField] private TextMeshProUGUI healthText;
 
     private int currentHealth;
     private Vector3 startPosition;
@@ -19,6 +20,7 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = maxHealth;
         startPosition = transform.position;
         rb = GetComponent<Rigidbody2D>();
+        UpdateHealthUI();
     }
 
     // Публичный — чтобы враг мог нанести урон извне
@@ -27,6 +29,7 @@ public class PlayerHealth : MonoBehaviour
         if (isDead) return;
 
         currentHealth -= amount;
+        UpdateHealthUI();
         Debug.Log("Получен урон! HP: " + currentHealth);
 
         if (currentHealth <= 0)
@@ -81,6 +84,7 @@ public class PlayerHealth : MonoBehaviour
 
         // Полное здоровье
         currentHealth = maxHealth;
+        UpdateHealthUI();
 
         // Откат мира к снимку: возвращаем пикапы и перезаряжаем спавнеры за чекпоинтом
         WorldState.Rollback();
@@ -99,6 +103,7 @@ public class PlayerHealth : MonoBehaviour
     public void RestoreFullHealth()
     {
         currentHealth = maxHealth;
+        UpdateHealthUI();
         Debug.Log("Здоровье восстановлено! HP: " + currentHealth);
     }
 
@@ -120,4 +125,16 @@ public class PlayerHealth : MonoBehaviour
     }
 
     public static bool IsPlayerAlive { get; private set; } = true;
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    private static void ResetAliveState()
+    {
+        IsPlayerAlive = true;
+    }
+
+    private void UpdateHealthUI()
+    {
+        if (healthText != null)
+            healthText.text = "Здоровье: " + currentHealth;
+    }
 }
