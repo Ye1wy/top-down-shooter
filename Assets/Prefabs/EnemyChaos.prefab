@@ -179,10 +179,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e26f29573f3d53d5a62792d0587f617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyChaotic
-  moveSpeed: 3
-  detectionRange: 6
-  loseInterestRange: 9
+  moveSpeed: 3.5
+  detectionRange: 12
+  loseInterestRange: 12
   damage: 1
   damageInterval: 1
-  wanderStrength: 70.6
-  wanderFrequency: 2.34
+  wanderStrength: 200
+  wanderFrequency: 2
