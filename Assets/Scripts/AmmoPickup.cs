@@ -10,9 +10,12 @@ public class AmmoPickup : MonoBehaviour, IConsumable
             return;
 
         int amount = DifficultyState.Current != null ? DifficultyState.Current.ammoPickupAmount : ammoAmount;
-            
+
         // Берём скрипт стрельбы у игрока и докидываем патроны
         shooting.AddAmmo(amount);
+
+        AudioManager.Instance?.PlaySfx(AudioManager.Sfx.AmmoPickup);
+
         gameObject.SetActive(false);
         WorldState.RegisterConsumed(this);
     }

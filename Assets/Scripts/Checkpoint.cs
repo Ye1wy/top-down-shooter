@@ -32,6 +32,7 @@ public class Checkpoint : MonoBehaviour
         CheckpointData.Position = other.transform.position;
 
         WorldState.Commit();
+        AudioManager.Instance?.PlaySfx(AudioManager.Sfx.Checkpoint);
 
         if (other.TryGetComponent<PlayerShooting>(out var shooting))
             CheckpointData.SavedAmmo = shooting.GetAmmo();

@@ -27,6 +27,8 @@ public class PlayerHealth : MonoBehaviour
     {
         if (isDead) return;
 
+        AudioManager.Instance?.PlaySfx(AudioManager.Sfx.PlayerHit);
+
         currentHealth -= amount;
         if (TelemetryManager.Instance != null)
             TelemetryManager.Instance.RegisterDamageTaken(amount, currentHealth);
@@ -48,6 +50,7 @@ public class PlayerHealth : MonoBehaviour
 
     private IEnumerator DeathRoutine()
     {
+        AudioManager.Instance?.PlaySfx(AudioManager.Sfx.PlayerDeath);
         isDead = true;
         IsPlayerAlive = false;
 

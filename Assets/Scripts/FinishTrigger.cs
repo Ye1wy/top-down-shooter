@@ -9,7 +9,7 @@ public class FinishTrigger : MonoBehaviour
     {
         hasFinished = false;
     }
-    
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.TryGetComponent<PlayerShooting>(out var _))
@@ -20,8 +20,11 @@ public class FinishTrigger : MonoBehaviour
 
         if (gameFlow == null)
             gameFlow = FindFirstObjectByType<GameFlowManager>();
-        
+
         if (gameFlow != null)
+        {
+            AudioManager.Instance?.PlaySfx(AudioManager.Sfx.LevelComplete);
             gameFlow.Finish();
+        }
     }
 }

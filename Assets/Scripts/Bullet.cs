@@ -24,6 +24,8 @@ public class Bullet : MonoBehaviour
                 Instantiate(enemyDeathVFXPrefab, collision.gameObject.transform.position, Quaternion.Euler(90, 0, 0));
             }
 
+            AudioManager.Instance?.PlaySfx(AudioManager.Sfx.EnemyDeath);
+
             Destroy(collision.gameObject);
         }
 

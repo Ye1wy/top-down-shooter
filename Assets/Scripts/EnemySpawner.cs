@@ -56,6 +56,8 @@ public class EnemySpawner : MonoBehaviour, IConsumable
     {
         if (hasTriggered) return;
 
+        AudioManager.Instance?.PlaySfx(AudioManager.Sfx.EnemySpawn);
+
         hasTriggered = true;
         WorldState.RegisterConsumed(this);
         StartCoroutine(SpawnRoutine());
@@ -72,7 +74,7 @@ public class EnemySpawner : MonoBehaviour, IConsumable
             count = Mathf.Max(0, Mathf.RoundToInt(enemyCount * profile.enemyCountMultiplier));
             interval = spawnInterval * profile.spawnIntervalMultiplier;
         }
-        
+
         for (int i = 0; i < count; i++)
         {
             // Небольшой случайный разброс, чтобы враги не спавнились в одной точке

@@ -34,7 +34,7 @@ public class GameFlowManager : MonoBehaviour
     {
         if (levelController != null)
             levelController.ApplyConditionAndReset(profile);
- 
+
         isPlaying = false;
         isPaused = false;
         Time.timeScale = 0f;
@@ -42,7 +42,7 @@ public class GameFlowManager : MonoBehaviour
         if (startPanel != null) startPanel.SetActive(true);
         SetPlayerControl(false);
     }
-    
+
     private void Update()
     {
         if (!isPlaying) return;

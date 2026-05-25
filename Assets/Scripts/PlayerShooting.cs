@@ -37,6 +37,7 @@ public class PlayerShooting : MonoBehaviour
             {
                 if (TelemetryManager.Instance != null)
                     TelemetryManager.Instance.RegisterAmmoEmpty();
+                AudioManager.Instance?.PlaySfx(AudioManager.Sfx.AmmoEmpty);
             }
         }
     }
@@ -74,6 +75,8 @@ public class PlayerShooting : MonoBehaviour
 
         GameObject bullet = Instantiate(bulletPrefab, spawnPos, Quaternion.identity);
         bullet.GetComponent<Rigidbody2D>().linearVelocity = direction * bulletSpeed;
+
+        AudioManager.Instance?.PlaySfx(AudioManager.Sfx.Shot);
     }
 
     private void UpdateAmmoUI()
