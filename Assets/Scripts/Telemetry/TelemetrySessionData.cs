@@ -3,11 +3,6 @@ using System;
 [Serializable]
 public class TelemetrySessionData
 {
-    // Контекст
-    public string participant_id;
-    public string condition_id;
-    public int order_index;
-
     // Исход
     public bool completed;
     public bool quit;

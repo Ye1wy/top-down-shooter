@@ -8,12 +8,20 @@ public static class CheckpointData
     public static int SavedAmmo;
     public static int SavedHealth;
 
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
-    private static void ResetState()
+    // Перед запуском нового конфига: между сценами RuntimeInitialize не срабатывает,
+    // поэтому сбрасываем явно, иначе следующий конфиг стартует с чужим чекпоинтом.
+    public static void Reset()
     {
         HasCheckpoint = false;
         Position = Vector2.zero;
         SavedAmmo = 0;
         SavedHealth = 0;
+    }
+
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    private static void ResetState()
+    {
+        Reset();
     }
 }

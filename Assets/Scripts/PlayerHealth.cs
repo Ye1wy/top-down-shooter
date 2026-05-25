@@ -140,6 +140,11 @@ public class PlayerHealth : MonoBehaviour
 
     public int MaxHealth => maxHealth;
 
+    public static void ResetAlive()
+    {
+        IsPlayerAlive = true;
+    }
+
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
     private static void ResetAliveState()
     {

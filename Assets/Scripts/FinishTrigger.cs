@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class FinishTrigger : MonoBehaviour
 {
+    [SerializeField] private GameFlowManager gameFlow;
     private bool hasFinished = false;
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -12,7 +13,10 @@ public class FinishTrigger : MonoBehaviour
         if (hasFinished) return;
         hasFinished = true;
 
-        if (TelemetryManager.Instance != null)
-            TelemetryManager.Instance.RegisterCompleted();
+        if (gameFlow == null)
+            gameFlow = FindFirstObjectByType<GameFlowManager>();
+        
+        if (gameFlow != null)
+            gameFlow.Finish();
     }
 }

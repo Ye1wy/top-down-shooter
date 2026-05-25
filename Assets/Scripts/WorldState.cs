@@ -30,6 +30,14 @@ public static class WorldState
         consumedSinceCheckpoint.Clear();
     }
 
+    // Перед запуском нового конфига: RuntimeInitialize между сценами не срабатывает,
+    // поэтому чистим список явно.
+    public static void ResetForNewCondition()
+    {
+        consumedSinceCheckpoint.Clear();
+    }
+
+
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
     private static void ResetState()
     {
