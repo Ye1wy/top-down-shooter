@@ -23,7 +23,6 @@ public class PlayerHealth : MonoBehaviour
         UpdateHealthUI();
     }
 
-    // Публичный — чтобы враг мог нанести урон извне
     public void TakeDamage(int amount)
     {
         if (isDead) return;
@@ -36,9 +35,7 @@ public class PlayerHealth : MonoBehaviour
         Debug.Log("Получен урон! HP: " + currentHealth);
 
         if (currentHealth <= 0)
-        {
             StartCoroutine(DeathRoutine());
-        }
     }
 
     private void Die()
@@ -60,9 +57,7 @@ public class PlayerHealth : MonoBehaviour
         Debug.Log("Respawn: Игрок погиб");
 
         if (DeathVFXPrefab != null)
-        {
             Instantiate(DeathVFXPrefab, transform.position, Quaternion.Euler(90, 0, 0));
-        }
 
         rb.linearVelocity = Vector2.zero;
         SetPlayerActive(false);
@@ -83,7 +78,6 @@ public class PlayerHealth : MonoBehaviour
 
         Debug.Log("Игрок погиб, возрождение");
 
-        // Позиция: чекпоинт или старт
         Vector3 respawnPos = CheckpointData.HasCheckpoint
             ? new Vector3(CheckpointData.Position.x, CheckpointData.Position.y, transform.position.z)
             : startPosition;
@@ -92,19 +86,15 @@ public class PlayerHealth : MonoBehaviour
         rb.position = respawnPos;
         transform.position = respawnPos;
 
-        // Полное здоровье
         currentHealth = maxHealth;
         UpdateHealthUI();
 
-        // Откат мира к снимку: возвращаем пикапы и перезаряжаем спавнеры за чекпоинтом
         WorldState.Rollback();
 
-        // Убираем всех живых врагов
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject enemy in enemies)
             Destroy(enemy);
 
-        // Возвращаем патроны к значению на момент снимка
         PlayerShooting shooting = GetComponent<PlayerShooting>();
         if (shooting != null)
             shooting.SetAmmo(CheckpointData.SavedAmmo);
@@ -117,9 +107,24 @@ public class PlayerHealth : MonoBehaviour
         Debug.Log("Здоровье восстановлено! HP: " + currentHealth);
     }
 
+    // Полный сброс игрока перед новым условием: на старт, полное HP, живой, управляемый.
+    public void ResetForNewCondition()
+    {
+        StopAllCoroutines();
+        isDead = false;
+        IsPlayerAlive = true;
+        currentHealth = maxHealth;
+
+        if (rb != null) rb.linearVelocity = Vector2.zero;
+        if (rb != null) rb.position = startPosition;
+        transform.position = startPosition;
+
+        SetPlayerActive(true);
+        UpdateHealthUI();
+    }
+
     private void SetPlayerActive(bool active)
     {
-        // Спрайт может быть на дочернем объекте — выключаем все найденные
         SpriteRenderer[] sprites = GetComponentsInChildren<SpriteRenderer>();
         foreach (SpriteRenderer sprite in sprites)
             sprite.enabled = active;
@@ -140,6 +145,8 @@ public class PlayerHealth : MonoBehaviour
 
     public int MaxHealth => maxHealth;
 
+    // Сброс статики перед новым условием (между сценами не нужен, т.к. сцена одна,
+    // но оставлен для совместимости и явного вызова из LevelController)
     public static void ResetAlive()
     {
         IsPlayerAlive = true;

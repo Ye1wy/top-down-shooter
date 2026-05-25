@@ -4,7 +4,8 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
+// Живёт в той же сцене уровня (одна сцена на весь эксперимент).
+// Управляет контрбалансировкой, последовательностью условий, опросом и единым файлом.
 public class SessionController : MonoBehaviour
 {
     public static SessionController Instance { get; private set; }
@@ -13,7 +14,7 @@ public class SessionController : MonoBehaviour
     public class ConditionSetup
     {
         public Difficult.DifficultType condition;
-        public string sceneName;
+        public DifficultyProfile profile;
     }
 
     [Header("Участник")]
@@ -22,10 +23,11 @@ public class SessionController : MonoBehaviour
 
     [Header("Конфигурации (канонический порядок, например Easy, Normal, Hard)")]
     [SerializeField] private ConditionSetup[] conditions = new ConditionSetup[3];
-
-    [Header("UI (на этом же персистентном объекте)")]
+    
+    [Header("Ссылки в сцене")]
+    [SerializeField] private GameFlowManager gameFlow;
     [SerializeField] private SurveyPanel surveyPanel;
-    [SerializeField] private GameObject finishedPanel;    // экран "эксперимент завершён"
+    [SerializeField] private GameObject finishedPanel;
 
     // 6 перестановок индексов {0,1,2} — полная контрбалансировка.
     // participant_number 1..6 → перестановки 0..5, далее по кругу.
@@ -52,7 +54,6 @@ public class SessionController : MonoBehaviour
             return;
         }
         Instance = this;
-        DontDestroyOnLoad(gameObject);
 
         int permIndex = (Mathf.Max(1, participantNumber) - 1) % Permutations.Length;
         order = Permutations[permIndex];
@@ -77,25 +78,20 @@ public class SessionController : MonoBehaviour
     {
         if (surveyPanel != null) surveyPanel.gameObject.SetActive(false);
         if (finishedPanel != null) finishedPanel.SetActive(false);
-        LoadCurrentCondition();
+        BeginCurrentCondition();
     }
 
     public Difficult.DifficultType CurrentCondition => conditions[order[currentStep]].condition;
     public int CurrentOrderIndex => currentStep + 1;
     public int TotalConditions => order.Length;
 
-    private void LoadCurrentCondition()
+    private void BeginCurrentCondition()
     {
-        // Сброс статики от предыдущего конфига (RuntimeInitialize между сценами НЕ срабатывает)
-        CheckpointData.Reset();
-        WorldState.ResetForNewCondition();
-        PlayerHealth.ResetAlive();
-
-        Time.timeScale = 1f; // стартовое меню новой сцены само поставит 0
-        SceneManager.LoadScene(conditions[order[currentStep]].sceneName);
+        var setup = conditions[order[currentStep]];
+        gameFlow.BeginCondition(setup.profile);
     }
 
-    // Вызывает GameFlowManager сцены, когда конфиг закончился (финиш или сдача).
+    // Вызывает GameFlowManager сцены, когда условие закончился (финиш или сдача).
     public void OnConditionEnded(TelemetrySessionData stats)
     {
         Time.timeScale = 0f; // замораживаем игру под опрос
@@ -118,7 +114,7 @@ public class SessionController : MonoBehaviour
 
         currentStep++;
         if (currentStep < order.Length)
-            LoadCurrentCondition();
+            BeginCurrentCondition();
         else
             ShowFinished();
     }

@@ -12,23 +12,37 @@ public class GameFlowManager : MonoBehaviour
     [Header("Ссылки на игрока")]
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private PlayerShooting playerShooting;
+    [SerializeField] private LevelController levelController;
 
     private bool isPlaying = false;
     private bool isPaused = false;
 
-    private void Start()
+    private void Awake()
     {
         // Старт конфига: игра заморожена, ждём кнопку "Начать"
         Time.timeScale = 0f;
-        isPlaying = false;
-        isPaused = false;
 
         if (startPanel != null) startPanel.SetActive(true);
         if (pausePanel != null) pausePanel.SetActive(false);
 
         SetPlayerControl(false);
+        isPlaying = false;
     }
 
+    // Вызывает SessionController перед каждым условием
+    public void BeginCondition(DifficultyProfile profile)
+    {
+        if (levelController != null)
+            levelController.ApplyConditionAndReset(profile);
+ 
+        isPlaying = false;
+        isPaused = false;
+        Time.timeScale = 0f;
+        if (pausePanel != null) pausePanel.SetActive(false);
+        if (startPanel != null) startPanel.SetActive(true);
+        SetPlayerControl(false);
+    }
+    
     private void Update()
     {
         if (!isPlaying) return;

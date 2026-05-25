@@ -7,6 +7,14 @@ public class Checkpoint : MonoBehaviour
 
     private bool hasActivated = false;
 
+    public int Index => checkpointIndex;
+
+    public void ResetForNewCondition()
+    {
+        hasActivated = false;
+        gameObject.SetActive(true);
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.TryGetComponent<PlayerShooting>(out var _))

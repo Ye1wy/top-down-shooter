@@ -63,7 +63,17 @@ public class EnemySpawner : MonoBehaviour, IConsumable
 
     private IEnumerator SpawnRoutine()
     {
-        for (int i = 0; i < enemyCount; i++)
+        var profile = DifficultyState.Current;
+        int count = enemyCount;
+        float interval = spawnInterval;
+
+        if (profile != null)
+        {
+            count = Mathf.Max(0, Mathf.RoundToInt(enemyCount * profile.enemyCountMultiplier));
+            interval = spawnInterval * profile.spawnIntervalMultiplier;
+        }
+        
+        for (int i = 0; i < count; i++)
         {
             // Небольшой случайный разброс, чтобы враги не спавнились в одной точке
             Vector2 offset = Random.insideUnitCircle * spawnRadius;
@@ -72,7 +82,7 @@ public class EnemySpawner : MonoBehaviour, IConsumable
             Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
 
             // Пауза перед следующим спавном
-            yield return new WaitForSeconds(spawnInterval);
+            yield return new WaitForSeconds(interval);
         }
     }
 

@@ -27,6 +27,14 @@ public abstract class EnemyBase : MonoBehaviour
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj != null)
             player = playerObj.transform;
+
+        var profile = DifficultyState.Current;
+        if (profile != null)
+        {
+            moveSpeed = profile.enemyMoveSpeed;
+            damage = profile.enemyDamage;
+            damageInterval = profile.enemyDamageInterval;
+        }
     }
 
     private void Update()

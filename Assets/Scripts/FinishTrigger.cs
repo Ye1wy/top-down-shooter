@@ -5,6 +5,11 @@ public class FinishTrigger : MonoBehaviour
     [SerializeField] private GameFlowManager gameFlow;
     private bool hasFinished = false;
 
+    public void ResetTrigger()
+    {
+        hasFinished = false;
+    }
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.TryGetComponent<PlayerShooting>(out var _))

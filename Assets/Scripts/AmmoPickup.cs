@@ -9,8 +9,10 @@ public class AmmoPickup : MonoBehaviour, IConsumable
         if (!other.TryGetComponent<PlayerShooting>(out var shooting))
             return;
 
+        int amount = DifficultyState.Current != null ? DifficultyState.Current.ammoPickupAmount : ammoAmount;
+            
         // Берём скрипт стрельбы у игрока и докидываем патроны
-        shooting.AddAmmo(ammoAmount);
+        shooting.AddAmmo(amount);
         gameObject.SetActive(false);
         WorldState.RegisterConsumed(this);
     }

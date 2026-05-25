@@ -37,6 +37,12 @@ public class TelemetryManager : MonoBehaviour
     // Вызывается GameFlowManager при нажатии "Начать". Здесь стартует секундомер.
     public void BeginSession()
     {
+        data = new TelemetrySessionData();
+        currentProgressPercent = 0f;
+        checkpointProgressPercent = 0f;
+        lastDeathZone = -1;
+        waitingAfterDeath = false;
+        
         sessionStartTime = Time.time;
         safePointTime = sessionStartTime;
         sessionActive = true;
