@@ -21,7 +21,7 @@ public class TelemetryManager : MonoBehaviour
     private bool hasSaved;
     private float currentProgressPercent;
     private float checkpointProgressPercent;
-    private float checkpointTime;
+    private float safePointTime;
     private int lastDeathZone = -1;
     private bool waitingAfterDeath;
 
@@ -42,7 +42,7 @@ public class TelemetryManager : MonoBehaviour
         };
         sessionStartTime = Time.time;
 
-        checkpointTime = sessionStartTime;
+        safePointTime = sessionStartTime;
     }
 
     // Единая точка сохранения; пишет файл только один раз за сессию
@@ -157,7 +157,7 @@ public class TelemetryManager : MonoBehaviour
 
         // Цена ошибки: все, что пройдено после последнего чекпоинта, теряется
         data.progress_lost_percent += Mathf.Max(0f, currentProgressPercent - checkpointProgressPercent);
-        data.progress_lost_sec += Time.time - checkpointTime;
+        data.progress_lost_sec += Mathf.Max(0f, Time.time - safePointTime);
 
         int zone = GetProgressZone(currentProgressPercent);
         if (zone == lastDeathZone)
@@ -176,6 +176,7 @@ public class TelemetryManager : MonoBehaviour
 
         data.restart_count++;
         currentProgressPercent = checkpointProgressPercent;
+        safePointTime = Time.time;
         waitingAfterDeath = true;
     }
 
@@ -186,8 +187,11 @@ public class TelemetryManager : MonoBehaviour
 
         data.checkpoint_reached = Mathf.Max(data.checkpoint_reached, checkpointIndex);
 
-        checkpointProgressPercent = progressPercent;
-        checkpointTime = Time.time;
+        checkpointProgressPercent = Mathf.Max(checkpointProgressPercent, progressPercent);
+        currentProgressPercent = Mathf.Max(currentProgressPercent, checkpointProgressPercent);
+        data.max_progress_percent = Mathf.Max(data.max_progress_percent, currentProgressPercent);
+
+        safePointTime = Time.time;
     }
 
     // ---------Progress-----------
@@ -195,8 +199,8 @@ public class TelemetryManager : MonoBehaviour
     {
         if (data == null) return;
 
-        currentProgressPercent = progressPercent;
-        data.max_progress_percent = Mathf.Max(data.max_progress_percent, progressPercent);
+        currentProgressPercent = Mathf.Max(currentProgressPercent, progressPercent);
+        data.max_progress_percent = Mathf.Max(data.max_progress_percent, currentProgressPercent);
     }
 
     // ---------Complete-----------
