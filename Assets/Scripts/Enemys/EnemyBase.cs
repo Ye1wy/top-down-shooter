@@ -11,6 +11,10 @@ public abstract class EnemyBase : MonoBehaviour
     [Header("Урон")]
     [SerializeField] private int damage = 1;
     [SerializeField] private float damageInterval = 1f;
+    [SerializeField] private bool useContactDamage = true;
+
+    [Header("Здоровье")]
+    [SerializeField] protected int hitPoints = 1;
 
     protected Rigidbody2D rb;
     protected Transform player;
@@ -76,8 +80,15 @@ public abstract class EnemyBase : MonoBehaviour
         return ((Vector2)player.position - rb.position).normalized;
     }
 
+    public virtual bool TakeHit(int amount = 1)
+    {
+        hitPoints -= amount;
+        return hitPoints <= 0;
+    }
+
     private void OnCollisionStay2D(Collision2D collision)
     {
+        if (!useContactDamage) return;
         if (!collision.gameObject.CompareTag("Player")) return;
         if (damageTimer > 0f) return;
 

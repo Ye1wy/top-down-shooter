@@ -19,14 +19,19 @@ public class Bullet : MonoBehaviour
             if (TelemetryManager.Instance != null)
                 TelemetryManager.Instance.RegisterShotHit();
 
-            if (enemyDeathVFXPrefab != null)
+            bool killed = true;
+
+            if (collision.gameObject.TryGetComponent<EnemyBase>(out var enemy))
+                killed = enemy.TakeHit(1);
+
+            if (killed)
             {
-                Instantiate(enemyDeathVFXPrefab, collision.gameObject.transform.position, Quaternion.Euler(90, 0, 0));
+                if (enemyDeathVFXPrefab != null)
+                    Instantiate(enemyDeathVFXPrefab, collision.gameObject.transform.position, Quaternion.Euler(90, 0, 0));
+
+                AudioManager.Instance?.PlaySfx(AudioManager.Sfx.EnemyDeath);
+                Destroy(collision.gameObject);
             }
-
-            AudioManager.Instance?.PlaySfx(AudioManager.Sfx.EnemyDeath);
-
-            Destroy(collision.gameObject);
         }
 
         // Исчезает при попадании во что-либо (стену, врага)
