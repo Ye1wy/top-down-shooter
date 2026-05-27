@@ -19,61 +19,26 @@ MonoBehaviour:
     enemyDamage: 1
     enemyDamageInterval: 0.9
     spawners:
-    - id: Spawner (9)
-      enemyPrefab: {fileID: 2839910469423133412, guid: c8aa63cfde34b5c4c8217bdf1d8e58fe, type: 3}
-      enemyCount: 9
-      spawnInterval: 0.5
-      spawnRadius: 2.23
-    - id: Spawner (6)
-      enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
-      enemyCount: 9
-      spawnInterval: 0.5
-      spawnRadius: 2.95
-    - id: Spawner (13)
-      enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
-      enemyCount: 9
-      spawnInterval: 0.5
-      spawnRadius: 2.84
-    - id: Spawner (8)
-      enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
-      enemyCount: 9
-      spawnInterval: 0.5
-      spawnRadius: 2.64
     - id: Spawner (3)
       enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
       enemyCount: 9
       spawnInterval: 0.5
       spawnRadius: 2.24
-    - id: Spawner (14)
-      enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
-      enemyCount: 9
-      spawnInterval: 0.5
-      spawnRadius: 2.67
-    - id: Spawner (15)
-      enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
-      enemyCount: 9
-      spawnInterval: 0.5
-      spawnRadius: 2.84
     - id: Spawner (16)
       enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
       enemyCount: 9
       spawnInterval: 0.5
       spawnRadius: 2.88
-    - id: Spawner (2)
-      enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
-      enemyCount: 9
-      spawnInterval: 0.5
-      spawnRadius: 2.71
     - id: Spawner (1)
       enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
       enemyCount: 9
       spawnInterval: 0.5
       spawnRadius: 3.62
-    - id: Spawner (7)
+    - id: Spawner (9)
       enemyPrefab: {fileID: 2839910469423133412, guid: c8aa63cfde34b5c4c8217bdf1d8e58fe, type: 3}
       enemyCount: 9
       spawnInterval: 0.5
-      spawnRadius: 3.4
+      spawnRadius: 2.23
     - id: Spawner (11)
       enemyPrefab: {fileID: 2839910469423133412, guid: c8aa63cfde34b5c4c8217bdf1d8e58fe, type: 3}
       enemyCount: 9
@@ -84,11 +49,46 @@ MonoBehaviour:
       enemyCount: 9
       spawnInterval: 0.5
       spawnRadius: 4.13
+    - id: Spawner (2)
+      enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
+      enemyCount: 9
+      spawnInterval: 0.5
+      spawnRadius: 2.71
+    - id: Spawner (14)
+      enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
+      enemyCount: 9
+      spawnInterval: 0.5
+      spawnRadius: 2.67
     - id: Spawner (4)
       enemyPrefab: {fileID: 2839910469423133412, guid: c8aa63cfde34b5c4c8217bdf1d8e58fe, type: 3}
       enemyCount: 9
       spawnInterval: 0.5
       spawnRadius: 2.34
+    - id: Spawner (6)
+      enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
+      enemyCount: 9
+      spawnInterval: 0.5
+      spawnRadius: 2.95
+    - id: Spawner (8)
+      enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
+      enemyCount: 9
+      spawnInterval: 0.5
+      spawnRadius: 2.64
+    - id: Spawner (7)
+      enemyPrefab: {fileID: 2839910469423133412, guid: c8aa63cfde34b5c4c8217bdf1d8e58fe, type: 3}
+      enemyCount: 9
+      spawnInterval: 0.5
+      spawnRadius: 3.4
+    - id: Spawner (15)
+      enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
+      enemyCount: 9
+      spawnInterval: 0.5
+      spawnRadius: 2.84
+    - id: Spawner (13)
+      enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
+      enemyCount: 9
+      spawnInterval: 0.5
+      spawnRadius: 2.84
     ammoPickups:
     - id: AmmoPickup(Clone)
       ammoAmount: 13
@@ -96,27 +96,27 @@ MonoBehaviour:
       ammoAmount: 13
     - id: AmmoPickup(Clone)
       ammoAmount: 13
-    - id: AmmoPickup(Clone)
-      ammoAmount: 13
-    - id: AmmoPickup(Clone)
+    - id: AmmoPickup(Clone) (6)
       ammoAmount: 13
     - id: AmmoPickup(Clone) (7)
       ammoAmount: 13
-    - id: AmmoPickup(Clone)
-      ammoAmount: 13
-    - id: AmmoPickup(Clone)
+    - id: AmmoPickup(Clone) (5)
       ammoAmount: 13
     - id: AmmoPickup(Clone) (3)
-      ammoAmount: 13
-    - id: AmmoPickup(Clone)
       ammoAmount: 13
     - id: AmmoPickup(Clone) (4)
       ammoAmount: 13
     - id: AmmoPickup(Clone)
       ammoAmount: 13
-    - id: AmmoPickup(Clone) (6)
+    - id: AmmoPickup(Clone)
       ammoAmount: 13
-    - id: AmmoPickup(Clone) (5)
+    - id: AmmoPickup(Clone)
+      ammoAmount: 13
+    - id: AmmoPickup(Clone)
+      ammoAmount: 13
+    - id: AmmoPickup(Clone)
+      ammoAmount: 13
+    - id: AmmoPickup(Clone)
       ammoAmount: 13
     checkpoints:
     - id: Checkpoint(Clone) (1)

@@ -2889,7 +2889,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &414606529
 Transform:
   m_ObjectHideFlags: 0
@@ -2899,8 +2899,8 @@ Transform:
   m_GameObject: {fileID: 414606528}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -21.8, y: 38.5, z: 0}
-  m_LocalScale: {x: 11.215885, y: 1.1185939, z: 1}
+  m_LocalPosition: {x: -21.8237, y: 38.0025, z: 0}
+  m_LocalScale: {x: 6.735839, y: 1.0593625, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 471550130}
@@ -9045,7 +9045,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b4702be1a4122bbab72232ff10c8d13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
-  musicClip: {fileID: 8300000, guid: 274cc22ba3157b043876abc603751847, type: 3}
+  musicClip: {fileID: 8300000, guid: 5595953e4226d7ffbb10d0d6fcc1f230, type: 3}
   musicVolume: 0.116
   sfx:
   - id: 0
@@ -11501,7 +11501,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1077710382
 Transform:
   m_ObjectHideFlags: 0
@@ -11511,8 +11511,8 @@ Transform:
   m_GameObject: {fileID: 1077710381}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 31.3398, y: 51.9802, z: 0}
-  m_LocalScale: {x: 5.6322465, y: 1.3981434, z: 1}
+  m_LocalPosition: {x: 31.1638, y: 51.979, z: 0}
+  m_LocalScale: {x: 5.3872437, y: 1.3943684, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 471550130}
@@ -15985,7 +15985,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1961487582
 Transform:
   m_ObjectHideFlags: 0
