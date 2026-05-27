@@ -568,7 +568,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
   balanceId: 948e3345
   enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
-  enemyCount: 2
+  enemyCount: 4
   spawnInterval: 0.5
   spawnRadius: 2.95
   spawnTrigger: {fileID: 19294622}
@@ -1139,7 +1139,7 @@ GameObject:
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &157659300
 Transform:
   m_ObjectHideFlags: 0
@@ -1189,7 +1189,7 @@ GameObject:
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &159764637
 Transform:
   m_ObjectHideFlags: 0
@@ -1239,7 +1239,7 @@ GameObject:
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &171320829
 Transform:
   m_ObjectHideFlags: 0
@@ -1320,7 +1320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AmmoPickup
   balanceId: bb1e5b03
-  ammoAmount: 3
+  ammoAmount: 5
 --- !u!61 &176047222
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1610,7 +1610,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
   balanceId: c15c20fc
   enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
-  enemyCount: 2
+  enemyCount: 3
   spawnInterval: 0.5
   spawnRadius: 2.67
   spawnTrigger: {fileID: 925273876}
@@ -1818,7 +1818,7 @@ GameObject:
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &260409773
 Transform:
   m_ObjectHideFlags: 0
@@ -1868,7 +1868,7 @@ GameObject:
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &286461273
 Transform:
   m_ObjectHideFlags: 0
@@ -1949,7 +1949,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AmmoPickup
   balanceId: 99a6012b
-  ammoAmount: 3
+  ammoAmount: 5
 --- !u!61 &288775811
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2302,7 +2302,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &312026111
 Transform:
   m_ObjectHideFlags: 0
@@ -2331,7 +2331,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AmmoPickup
   balanceId: cd00cb81
-  ammoAmount: 3
+  ammoAmount: 5
 --- !u!61 &312026113
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2729,7 +2729,7 @@ GameObject:
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &391862053
 Transform:
   m_ObjectHideFlags: 0
@@ -2781,7 +2781,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &414606529
 Transform:
   m_ObjectHideFlags: 0
@@ -3011,7 +3011,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &459289203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8045,7 +8045,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &495383640
 Transform:
   m_ObjectHideFlags: 0
@@ -8074,7 +8074,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AmmoPickup
   balanceId: 8a18415c
-  ammoAmount: 3
+  ammoAmount: 5
 --- !u!61 &495383642
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8196,7 +8196,7 @@ GameObject:
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &503285986
 Transform:
   m_ObjectHideFlags: 0
@@ -8572,7 +8572,7 @@ GameObject:
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &527562666
 Transform:
   m_ObjectHideFlags: 0
@@ -8622,7 +8622,7 @@ GameObject:
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &531868430
 Transform:
   m_ObjectHideFlags: 0
@@ -8652,7 +8652,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
   balanceId: b1bb1c4a
   enemyPrefab: {fileID: 2839910469423133412, guid: c8aa63cfde34b5c4c8217bdf1d8e58fe, type: 3}
-  enemyCount: 1
+  enemyCount: 2
   spawnInterval: 0.5
   spawnRadius: 2.71
   spawnTrigger: {fileID: 1709982702}
@@ -8839,7 +8839,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
   balanceId: b5b44b0b
   enemyPrefab: {fileID: 2839910469423133412, guid: c8aa63cfde34b5c4c8217bdf1d8e58fe, type: 3}
-  enemyCount: 1
+  enemyCount: 2
   spawnInterval: 0.5
   spawnRadius: 2.95
   spawnTrigger: {fileID: 19294622}
@@ -8861,7 +8861,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &534883283
 Transform:
   m_ObjectHideFlags: 0
@@ -8890,7 +8890,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AmmoPickup
   balanceId: 58a488ea
-  ammoAmount: 3
+  ammoAmount: 5
 --- !u!61 &534883285
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9560,7 +9560,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
   balanceId: a119805c
   enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
-  enemyCount: 2
+  enemyCount: 3
   spawnInterval: 0.5
   spawnRadius: 2.95
   spawnTrigger: {fileID: 1366577306}
@@ -10311,7 +10311,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
   balanceId: 78ba3968
   enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
-  enemyCount: 2
+  enemyCount: 3
   spawnInterval: 0.5
   spawnRadius: 2.71
   spawnTrigger: {fileID: 1709982702}
@@ -11004,7 +11004,7 @@ GameObject:
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &830348756
 Transform:
   m_ObjectHideFlags: 0
@@ -11449,7 +11449,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &954937164
 Transform:
   m_ObjectHideFlags: 0
@@ -11478,7 +11478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AmmoPickup
   balanceId: 7b8e2cc5
-  ammoAmount: 3
+  ammoAmount: 5
 --- !u!61 &954937166
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11680,7 +11680,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
   balanceId: 9ecc0d68
   enemyPrefab: {fileID: 2839910469423133412, guid: c8aa63cfde34b5c4c8217bdf1d8e58fe, type: 3}
-  enemyCount: 1
+  enemyCount: 2
   spawnInterval: 0.5
   spawnRadius: 2.24
   spawnTrigger: {fileID: 686247028}
@@ -11702,7 +11702,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1077710382
 Transform:
   m_ObjectHideFlags: 0
@@ -11854,7 +11854,7 @@ GameObject:
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1086505106
 Transform:
   m_ObjectHideFlags: 0
@@ -12092,7 +12092,7 @@ GameObject:
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1182288967
 Transform:
   m_ObjectHideFlags: 0
@@ -12143,7 +12143,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1204525918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12672,7 +12672,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1250321726
 Transform:
   m_ObjectHideFlags: 0
@@ -12701,7 +12701,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AmmoPickup
   balanceId: ba7a7a40
-  ammoAmount: 3
+  ammoAmount: 5
 --- !u!61 &1250321728
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13213,7 +13213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
   balanceId: ee4e18a0
   enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
-  enemyCount: 2
+  enemyCount: 3
   spawnInterval: 0.5
   spawnRadius: 2.84
   spawnTrigger: {fileID: 1501686604}
@@ -13498,7 +13498,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1359748676
 Transform:
   m_ObjectHideFlags: 0
@@ -13527,7 +13527,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AmmoPickup
   balanceId: 3455d986
-  ammoAmount: 3
+  ammoAmount: 5
 --- !u!61 &1359748678
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13798,7 +13798,7 @@ GameObject:
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1384054589
 Transform:
   m_ObjectHideFlags: 0
@@ -13898,7 +13898,7 @@ GameObject:
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1401889133
 Transform:
   m_ObjectHideFlags: 0
@@ -14299,7 +14299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AmmoPickup
   balanceId: 9bf08eba
-  ammoAmount: 3
+  ammoAmount: 5
 --- !u!61 &1508484778
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14421,7 +14421,7 @@ GameObject:
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1518185091
 Transform:
   m_ObjectHideFlags: 0
@@ -14451,7 +14451,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
   balanceId: 5554eb08
   enemyPrefab: {fileID: 124103006116710328, guid: 1a3077beb0c55817099d878743217a90, type: 3}
-  enemyCount: 1
+  enemyCount: 2
   spawnInterval: 0.5
   spawnRadius: 4.13
   spawnTrigger: {fileID: 1501686604}
@@ -14860,7 +14860,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1613282326
 Transform:
   m_ObjectHideFlags: 0
@@ -14889,7 +14889,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AmmoPickup
   balanceId: 06c22e05
-  ammoAmount: 3
+  ammoAmount: 5
 --- !u!61 &1613282328
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15011,7 +15011,7 @@ GameObject:
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1636365101
 Transform:
   m_ObjectHideFlags: 0
@@ -15249,7 +15249,7 @@ GameObject:
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1663691213
 Transform:
   m_ObjectHideFlags: 0
@@ -15299,7 +15299,7 @@ GameObject:
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1686541323
 Transform:
   m_ObjectHideFlags: 0
@@ -15443,7 +15443,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1725457079
 Transform:
   m_ObjectHideFlags: 0
@@ -15472,7 +15472,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AmmoPickup
   balanceId: 61ffb1ac
-  ammoAmount: 3
+  ammoAmount: 5
 --- !u!61 &1725457081
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15594,7 +15594,7 @@ GameObject:
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1726592833
 Transform:
   m_ObjectHideFlags: 0
@@ -16091,7 +16091,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
   balanceId: 5f599d25
   enemyPrefab: {fileID: 2839910469423133412, guid: c8aa63cfde34b5c4c8217bdf1d8e58fe, type: 3}
-  enemyCount: 2
+  enemyCount: 1
   spawnInterval: 0.5
   spawnRadius: 2.34
   spawnTrigger: {fileID: 1366577306}
@@ -16251,7 +16251,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1786600932
 Transform:
   m_ObjectHideFlags: 0
@@ -16280,7 +16280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AmmoPickup
   balanceId: d86a6c2e
-  ammoAmount: 3
+  ammoAmount: 5
 --- !u!61 &1786600934
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16948,7 +16948,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1961487582
 Transform:
   m_ObjectHideFlags: 0
@@ -17493,7 +17493,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2065847709
 Transform:
   m_ObjectHideFlags: 0
@@ -17522,7 +17522,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AmmoPickup
   balanceId: 0e1feb6b
-  ammoAmount: 3
+  ammoAmount: 5
 --- !u!61 &2065847711
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17644,7 +17644,7 @@ GameObject:
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2122865596
 Transform:
   m_ObjectHideFlags: 0
@@ -17694,7 +17694,7 @@ GameObject:
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2126386435
 Transform:
   m_ObjectHideFlags: 0
@@ -17724,7 +17724,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
   balanceId: 485f5d79
   enemyPrefab: {fileID: 2839910469423133412, guid: c8aa63cfde34b5c4c8217bdf1d8e58fe, type: 3}
-  enemyCount: 1
+  enemyCount: 2
   spawnInterval: 0.5
   spawnRadius: 2.67
   spawnTrigger: {fileID: 925273876}
