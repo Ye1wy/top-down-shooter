@@ -9,12 +9,6 @@ public class LevelController : MonoBehaviour
 
     public void ApplyConditionAndReset(DifficultyProfile profile)
     {
-        if (profile == null)
-        {
-            Debug.LogError("Cannot apply null difficulty profile.", this);
-            return;
-        }
-
         // Профиль увидят все враги/спавнеры/пикапы, которые появятся в этом условии
         DifficultyState.Current = profile;
 
