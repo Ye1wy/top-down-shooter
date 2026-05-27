@@ -11,19 +11,12 @@ public class SessionController : MonoBehaviour
 {
     public static SessionController Instance { get; private set; }
 
-    [Serializable]
-    public class ConditionSetup
-    {
-        public Difficult.DifficultType condition;
-        public DifficultyProfile profile;
-    }
-
     [Header("Сервер")]
     [SerializeField] private string serverUrl = "https://your.domain";  // тот же origin, что и WebGL
     [SerializeField] private string studyToken = "change-me";           // должен совпадать со STUDY_TOKEN сервера
 
     [Header("Конфигурации (канонический порядок, например Easy, Normal, Hard)")]
-    [SerializeField] private ConditionSetup[] conditions = new ConditionSetup[3];
+    [SerializeField] private DifficultConfig[] conditions = new DifficultConfig[3];
 
     [Header("Ссылки в сцене")]
     [SerializeField] private GameFlowManager gameFlow;
@@ -81,7 +74,7 @@ public class SessionController : MonoBehaviour
         StartCoroutine(InitializeAndRun());
     }
 
-    public Difficult.DifficultType CurrentCondition => conditions[order[currentStep]].condition;
+    public Difficult.DifficultType CurrentCondition => conditions[order[currentStep]].difficult;
     public int CurrentOrderIndex => currentStep + 1;
     public int TotalConditions => order.Length;
 
@@ -158,13 +151,19 @@ public class SessionController : MonoBehaviour
             experiment_start = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss"),
         };
         foreach (int idx in order)
-            participant.sequence.Add(conditions[idx].condition.ToString());
+            participant.sequence.Add(conditions[idx].difficult.ToString());
     }
 
     private void BeginCurrentCondition()
     {
-        var setup = conditions[order[currentStep]];
-        gameFlow.BeginCondition(setup.profile);
+        var config = conditions[order[currentStep]];
+        if (config == null)
+        {
+            Debug.LogError($"SessionController: не назначен DifficultConfig для индекса {order[currentStep]}.");
+            return;
+        }
+        gameFlow.BeginCondition(config.profile);
+
     }
 
     // Вызывает GameFlowManager, когда условие закончилось (финиш или сдача).
@@ -231,21 +230,6 @@ public class SessionController : MonoBehaviour
         Application.Quit();
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
-#endif
-    }
-
-    // Разово заполнить три условия каноническими профилями (см. DifficultyProfiles.cs).
-    [ContextMenu("Fill default profiles (Easy/Normal/Hard)")]
-    private void FillDefaultProfiles()
-    {
-        conditions = new[]
-        {
-            new ConditionSetup { condition = Difficult.DifficultType.Easy,   profile = DifficultyProfiles.Easy()   },
-            new ConditionSetup { condition = Difficult.DifficultType.Normal, profile = DifficultyProfiles.Normal() },
-            new ConditionSetup { condition = Difficult.DifficultType.Hard,   profile = DifficultyProfiles.Hard()   },
-        };
-#if UNITY_EDITOR
-        UnityEditor.EditorUtility.SetDirty(this);
 #endif
     }
 }

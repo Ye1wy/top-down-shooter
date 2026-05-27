@@ -37,35 +37,6 @@ public class DifficultyProfile
         if (string.IsNullOrWhiteSpace(id)) return null;
         return checkpoints.Find(x => x.id == id);
     }
-
-    public void CopyFrom(DifficultyProfile other)
-    {
-        if (other == null) return;
-
-        playerStartAmmo = other.playerStartAmmo;
-        enemyMoveSpeed = other.enemyMoveSpeed;
-        enemyDamage = other.enemyDamage;
-        enemyDamageInterval = other.enemyDamageInterval;
-
-        spawners = new List<SpawnerBalanceConfig>();
-        foreach (var x in other.spawners)
-            spawners.Add(x.Clone());
-
-        ammoPickups = new List<AmmoPickupBalanceConfig>();
-        foreach (var x in other.ammoPickups)
-            ammoPickups.Add(x.Clone());
-
-        checkpoints = new List<CheckpointBalanceConfig>();
-        foreach (var x in other.checkpoints)
-            checkpoints.Add(x.Clone());
-    }
-
-    public DifficultyProfile Clone()
-    {
-        var copy = new DifficultyProfile();
-        copy.CopyFrom(this);
-        return copy;
-    }
 }
 
 [Serializable]
@@ -76,18 +47,6 @@ public class SpawnerBalanceConfig
     public int enemyCount = 5;
     public float spawnInterval = 1f;
     public float spawnRadius = 1f;
-
-    public SpawnerBalanceConfig Clone()
-    {
-        return new SpawnerBalanceConfig
-        {
-            id = id,
-            enemyPrefab = enemyPrefab,
-            enemyCount = enemyCount,
-            spawnInterval = spawnInterval,
-            spawnRadius = spawnRadius
-        };
-    }
 }
 
 [Serializable]
@@ -95,15 +54,6 @@ public class AmmoPickupBalanceConfig
 {
     public string id;
     public int ammoAmount = 5;
-
-    public AmmoPickupBalanceConfig Clone()
-    {
-        return new AmmoPickupBalanceConfig
-        {
-            id = id,
-            ammoAmount = ammoAmount
-        };
-    }
 }
 
 [Serializable]
@@ -111,15 +61,6 @@ public class CheckpointBalanceConfig
 {
     public string id;
     public bool enabled = true;
-
-    public CheckpointBalanceConfig Clone()
-    {
-        return new CheckpointBalanceConfig
-        {
-            id = id,
-            enabled = enabled
-        };
-    }
 }
 
 // Текущий профиль, который читают враги в момент появления.
