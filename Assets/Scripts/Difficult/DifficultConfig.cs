@@ -33,6 +33,10 @@ public class DifficultConfig : ScriptableObject
         foreach (var checkpoint in FindObjectsByType<Checkpoint>(FindObjectsInactive.Include, FindObjectsSortMode.None))
             profile.checkpoints.Add(checkpoint.CaptureBalance());
 
+        profile.spawnTriggers.Clear();
+        foreach (var trigger in FindObjectsByType<SpawnTrigger>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+            profile.spawnTriggers.Add(trigger.CaptureBalance());
+
         MarkAssetDirty();
         Debug.Log($"[{name}] Снимок сцены сохранён для {difficult}.");
     }
@@ -67,6 +71,16 @@ public class DifficultConfig : ScriptableObject
             {
                 checkpoint.ApplyBalance(config);
                 MarkSceneObjectDirty(checkpoint);
+            }
+        }
+
+        foreach (var trigger in FindObjectsByType<SpawnTrigger>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        {
+            var config = profile.FindSpawnTrigger(trigger.BalanceId);
+            if (config != null)
+            {
+                trigger.ApplyBalance(config);
+                MarkSceneObjectDirty(trigger);
             }
         }
 

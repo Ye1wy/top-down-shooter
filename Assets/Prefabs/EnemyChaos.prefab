@@ -184,5 +184,7 @@ MonoBehaviour:
   loseInterestRange: 12
   damage: 1
   damageInterval: 1
-  wanderStrength: 200
+  useContactDamage: 1
+  hitPoints: 1
+  wanderStrength: 150
   wanderFrequency: 2

@@ -186,12 +186,12 @@ MonoBehaviour:
   damage: 1
   damageInterval: 1
   useContactDamage: 0
-  hitPoints: 4
-  attackRange: 2
-  attackRadius: 3
-  chargeTime: 1.2
-  recoveryTime: 0.8
-  strikeDamage: 2
+  hitPoints: 3
+  attackRange: 2.2
+  attackRadius: 1.7
+  chargeTime: 1.1
+  recoveryTime: 1.2
+  strikeDamage: 1
   telegraphIndicator: {fileID: 5107190353071739885}
 --- !u!1 &5107190353071739885
 GameObject:

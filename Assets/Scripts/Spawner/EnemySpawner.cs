@@ -40,6 +40,9 @@ public class EnemySpawner : MonoBehaviour, IConsumable
     {
         if (config == null) return;
 
+        if (gameObject.activeSelf != config.enabled)
+            gameObject.SetActive(config.enabled);
+
         if (config.enemyPrefab != null)
             enemyPrefab = config.enemyPrefab;
 
@@ -53,6 +56,7 @@ public class EnemySpawner : MonoBehaviour, IConsumable
         return new SpawnerBalanceConfig
         {
             id = BalanceId,
+            enabled = gameObject.activeSelf,
             enemyPrefab = enemyPrefab,
             enemyCount = enemyCount,
             spawnInterval = spawnInterval,
@@ -60,6 +64,13 @@ public class EnemySpawner : MonoBehaviour, IConsumable
         };
     }
 
+#if UNITY_EDITOR
+    private void OnValidate()
+    {
+        if (string.IsNullOrWhiteSpace(balanceId))
+            balanceId = System.Guid.NewGuid().ToString("N").Substring(0, 8);
+    }
+#endif
 
     private void OnDrawGizmos()
     {
@@ -73,6 +84,14 @@ public class EnemySpawner : MonoBehaviour, IConsumable
         {
             spawnTrigger.Triggered += OnTriggered;
         }
+    }
+
+    // Подписку держим на OnEnable/OnDisable: спавнеры переключаются SetActive
+    // между конфигурациями, а Awake срабатывает один раз — её одной мало.
+    private void OnEnable()
+    {
+        if (spawnTrigger != null)
+            spawnTrigger.Triggered += OnTriggered;
     }
 
     private void OnDisable()

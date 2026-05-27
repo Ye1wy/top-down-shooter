@@ -17,6 +17,7 @@ public class DifficultyProfile
 
     [Header("Manual configuration of level objects")]
     public List<SpawnerBalanceConfig> spawners = new();
+    public List<SpawnTriggerBalanceConfig> spawnTriggers = new();
     public List<AmmoPickupBalanceConfig> ammoPickups = new();
     public List<CheckpointBalanceConfig> checkpoints = new();
 
@@ -37,12 +38,19 @@ public class DifficultyProfile
         if (string.IsNullOrWhiteSpace(id)) return null;
         return checkpoints.Find(x => x.id == id);
     }
+
+    public SpawnTriggerBalanceConfig FindSpawnTrigger(string id)
+    {
+        if (string.IsNullOrWhiteSpace(id)) return null;
+        return spawnTriggers.Find(x => x.id == id);
+    }
 }
 
 [Serializable]
 public class SpawnerBalanceConfig
 {
     public string id;
+    public bool enabled = true;
     public GameObject enemyPrefab;
     public int enemyCount = 5;
     public float spawnInterval = 1f;
@@ -53,11 +61,19 @@ public class SpawnerBalanceConfig
 public class AmmoPickupBalanceConfig
 {
     public string id;
+    public bool enabled = true;
     public int ammoAmount = 5;
 }
 
 [Serializable]
 public class CheckpointBalanceConfig
+{
+    public string id;
+    public bool enabled = true;
+}
+
+[Serializable]
+public class SpawnTriggerBalanceConfig
 {
     public string id;
     public bool enabled = true;

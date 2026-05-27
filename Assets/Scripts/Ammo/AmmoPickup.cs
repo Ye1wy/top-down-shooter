@@ -28,6 +28,9 @@ public class AmmoPickup : MonoBehaviour, IConsumable
     {
         if (config == null) return;
 
+        if (gameObject.activeSelf != config.enabled)
+            gameObject.SetActive(config.enabled);
+
         ammoAmount = Mathf.Max(0, config.ammoAmount);
     }
 
@@ -36,9 +39,18 @@ public class AmmoPickup : MonoBehaviour, IConsumable
         return new AmmoPickupBalanceConfig
         {
             id = BalanceId,
+            enabled = gameObject.activeSelf,
             ammoAmount = ammoAmount
         };
     }
+
+#if UNITY_EDITOR
+    private void OnValidate()
+    {
+        if (string.IsNullOrWhiteSpace(balanceId))
+            balanceId = System.Guid.NewGuid().ToString("N").Substring(0, 8);
+    }
+#endif
 
     public void Rollback()
     {

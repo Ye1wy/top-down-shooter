@@ -22,6 +22,13 @@ public class LevelController : MonoBehaviour
         foreach (var enemy in GameObject.FindGameObjectsWithTag("Enemy"))
             Destroy(enemy);
 
+        foreach (var trigger in FindObjectsByType<SpawnTrigger>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        {
+            var config = profile.FindSpawnTrigger(trigger.BalanceId);
+            if (config != null)
+                trigger.ApplyBalance(config);
+        }
+
         // Спавнеры и пикапы — в исходное состояние (Rollback = "не израсходован")
         foreach (var spawner in FindObjectsByType<EnemySpawner>(FindObjectsInactive.Include, FindObjectsSortMode.None))
         {

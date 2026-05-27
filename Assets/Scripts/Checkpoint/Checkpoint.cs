@@ -17,15 +17,16 @@ public class Checkpoint : MonoBehaviour
     public void ResetForNewCondition()
     {
         hasActivated = false;
-        gameObject.SetActive(true);
     }
 
     public void ApplyBalance(CheckpointBalanceConfig config)
     {
         if (config == null) return;
 
+        if (gameObject.activeSelf != config.enabled)
+            gameObject.SetActive(config.enabled);
+
         hasActivated = false;
-        gameObject.SetActive(config.enabled);
     }
 
     public CheckpointBalanceConfig CaptureBalance()
@@ -36,6 +37,14 @@ public class Checkpoint : MonoBehaviour
             enabled = gameObject.activeSelf
         };
     }
+
+#if UNITY_EDITOR
+    private void OnValidate()
+    {
+        if (string.IsNullOrWhiteSpace(balanceId))
+            balanceId = System.Guid.NewGuid().ToString("N").Substring(0, 8);
+    }
+#endif
 
     private void OnTriggerEnter2D(Collider2D other)
     {

@@ -188,7 +188,7 @@ MonoBehaviour:
   useContactDamage: 0
   hitPoints: 1
   waveAmplitude: 0.6
-  waveFrequency: 5
+  waveFrequency: 2
   randomizeWavePhase: 1
   explosionRadius: 1.2
   explosionDamage: 1
