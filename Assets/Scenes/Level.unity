@@ -625,6 +625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f5cb86f0bcbee84f8c5bb5c57602245, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
+  balanceId: 
   enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
   enemyCount: 5
   spawnInterval: 0.5
@@ -676,6 +677,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49b0251bd4cdb6df28da78eee84bbee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AmmoPickup
+  balanceId: 
   ammoAmount: 5
 --- !u!61 &90411495
 BoxCollider2D:
@@ -1379,6 +1381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49b0251bd4cdb6df28da78eee84bbee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AmmoPickup
+  balanceId: 
   ammoAmount: 5
 --- !u!61 &134704904
 BoxCollider2D:
@@ -1531,6 +1534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49b0251bd4cdb6df28da78eee84bbee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AmmoPickup
+  balanceId: 
   ammoAmount: 5
 --- !u!61 &143108932
 BoxCollider2D:
@@ -1683,6 +1687,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49b0251bd4cdb6df28da78eee84bbee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AmmoPickup
+  balanceId: 
   ammoAmount: 5
 --- !u!61 &176047222
 BoxCollider2D:
@@ -1835,6 +1840,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49b0251bd4cdb6df28da78eee84bbee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AmmoPickup
+  balanceId: 
   ammoAmount: 5
 --- !u!61 &180231300
 BoxCollider2D:
@@ -2123,6 +2129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f5cb86f0bcbee84f8c5bb5c57602245, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
+  balanceId: 
   enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
   enemyCount: 5
   spawnInterval: 0.5
@@ -2312,6 +2319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49b0251bd4cdb6df28da78eee84bbee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AmmoPickup
+  balanceId: 
   ammoAmount: 5
 --- !u!61 &239601704
 BoxCollider2D:
@@ -2464,6 +2472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49b0251bd4cdb6df28da78eee84bbee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AmmoPickup
+  balanceId: 
   ammoAmount: 5
 --- !u!61 &280604246
 BoxCollider2D:
@@ -2616,6 +2625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49b0251bd4cdb6df28da78eee84bbee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AmmoPickup
+  balanceId: 
   ammoAmount: 5
 --- !u!61 &288775811
 BoxCollider2D:
@@ -2997,6 +3007,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49b0251bd4cdb6df28da78eee84bbee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AmmoPickup
+  balanceId: 
   ammoAmount: 5
 --- !u!61 &312026113
 BoxCollider2D:
@@ -3425,6 +3436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c24ca8d4dfea3bac8b1e556b8f1044d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Checkpoint
+  balanceId: 
   checkpointIndex: 3
   progressPercent: 75
 --- !u!61 &414606531
@@ -8747,6 +8759,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49b0251bd4cdb6df28da78eee84bbee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AmmoPickup
+  balanceId: 
   ammoAmount: 5
 --- !u!61 &481468710
 BoxCollider2D:
@@ -9223,6 +9236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f5cb86f0bcbee84f8c5bb5c57602245, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
+  balanceId: 
   enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
   enemyCount: 5
   spawnInterval: 0.5
@@ -9411,6 +9425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49b0251bd4cdb6df28da78eee84bbee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AmmoPickup
+  balanceId: 
   ammoAmount: 5
 --- !u!61 &534883285
 BoxCollider2D:
@@ -10688,6 +10703,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f5cb86f0bcbee84f8c5bb5c57602245, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
+  balanceId: 
   enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
   enemyCount: 5
   spawnInterval: 0.5
@@ -11185,6 +11201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f5cb86f0bcbee84f8c5bb5c57602245, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
+  balanceId: 
   enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
   enemyCount: 5
   spawnInterval: 0.5
@@ -11461,6 +11478,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49b0251bd4cdb6df28da78eee84bbee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AmmoPickup
+  balanceId: 
   ammoAmount: 5
 --- !u!61 &851994390
 BoxCollider2D:
@@ -11746,6 +11764,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49b0251bd4cdb6df28da78eee84bbee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AmmoPickup
+  balanceId: 
   ammoAmount: 5
 --- !u!61 &910777136
 BoxCollider2D:
@@ -12215,6 +12234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f5cb86f0bcbee84f8c5bb5c57602245, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
+  balanceId: 
   enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
   enemyCount: 5
   spawnInterval: 0.5
@@ -12264,6 +12284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f5cb86f0bcbee84f8c5bb5c57602245, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
+  balanceId: 
   enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
   enemyCount: 5
   spawnInterval: 0.5
@@ -12315,6 +12336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49b0251bd4cdb6df28da78eee84bbee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AmmoPickup
+  balanceId: 
   ammoAmount: 5
 --- !u!61 &1077039837
 BoxCollider2D:
@@ -12467,6 +12489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c24ca8d4dfea3bac8b1e556b8f1044d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Checkpoint
+  balanceId: 
   checkpointIndex: 1
   progressPercent: 50
 --- !u!61 &1077710384
@@ -12758,6 +12781,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49b0251bd4cdb6df28da78eee84bbee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AmmoPickup
+  balanceId: 
   ammoAmount: 5
 --- !u!61 &1157388454
 BoxCollider2D:
@@ -12908,6 +12932,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f5cb86f0bcbee84f8c5bb5c57602245, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
+  balanceId: 
   enemyPrefab: {fileID: 2839910469423133412, guid: c8aa63cfde34b5c4c8217bdf1d8e58fe, type: 3}
   enemyCount: 5
   spawnInterval: 0.5
@@ -12957,6 +12982,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f5cb86f0bcbee84f8c5bb5c57602245, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
+  balanceId: 
   enemyPrefab: {fileID: 2839910469423133412, guid: c8aa63cfde34b5c4c8217bdf1d8e58fe, type: 3}
   enemyCount: 5
   spawnInterval: 0.5
@@ -13778,6 +13804,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f5cb86f0bcbee84f8c5bb5c57602245, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
+  balanceId: 
   enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
   enemyCount: 5
   spawnInterval: 0.5
@@ -14488,6 +14515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f5cb86f0bcbee84f8c5bb5c57602245, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
+  balanceId: 
   enemyPrefab: {fileID: 2839910469423133412, guid: c8aa63cfde34b5c4c8217bdf1d8e58fe, type: 3}
   enemyCount: 5
   spawnInterval: 0.5
@@ -14539,6 +14567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49b0251bd4cdb6df28da78eee84bbee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AmmoPickup
+  balanceId: 
   ammoAmount: 5
 --- !u!61 &1476944743
 BoxCollider2D:
@@ -14842,6 +14871,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49b0251bd4cdb6df28da78eee84bbee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AmmoPickup
+  balanceId: 
   ammoAmount: 5
 --- !u!61 &1508484778
 BoxCollider2D:
@@ -15347,6 +15377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49b0251bd4cdb6df28da78eee84bbee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AmmoPickup
+  balanceId: 
   ammoAmount: 5
 --- !u!61 &1589563169
 BoxCollider2D:
@@ -15655,33 +15686,30 @@ MonoBehaviour:
   - condition: 0
     profile:
       playerStartAmmo: 20
-      ammoPickupAmount: 5
       enemyMoveSpeed: 2.2
       enemyDamage: 1
       enemyDamageInterval: 1.2
-      enemyCountMultiplier: 1
-      spawnIntervalMultiplier: 1.3
-      activeCheckpointCount: -1
+      spawners: []
+      ammoPickups: []
+      checkpoints: []
   - condition: 1
     profile:
       playerStartAmmo: 10
-      ammoPickupAmount: 5
       enemyMoveSpeed: 2.8
       enemyDamage: 1
       enemyDamageInterval: 0.9
-      enemyCountMultiplier: 1.2
-      spawnIntervalMultiplier: 1
-      activeCheckpointCount: 2
+      spawners: []
+      ammoPickups: []
+      checkpoints: []
   - condition: 2
     profile:
       playerStartAmmo: 4
-      ammoPickupAmount: 4
       enemyMoveSpeed: 4.2
       enemyDamage: 1
       enemyDamageInterval: 0.6
-      enemyCountMultiplier: 1.7
-      spawnIntervalMultiplier: 0.5
-      activeCheckpointCount: 0
+      spawners: []
+      ammoPickups: []
+      checkpoints: []
   gameFlow: {fileID: 544635588}
   surveyPanel: {fileID: 1790157395}
   finishedPanel: {fileID: 1545628643}
@@ -15746,6 +15774,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f5cb86f0bcbee84f8c5bb5c57602245, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
+  balanceId: 
   enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
   enemyCount: 5
   spawnInterval: 0.5
@@ -15797,6 +15826,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49b0251bd4cdb6df28da78eee84bbee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AmmoPickup
+  balanceId: 
   ammoAmount: 5
 --- !u!61 &1714235391
 BoxCollider2D:
@@ -16222,6 +16252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f5cb86f0bcbee84f8c5bb5c57602245, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
+  balanceId: 
   enemyPrefab: {fileID: 2839910469423133412, guid: c8aa63cfde34b5c4c8217bdf1d8e58fe, type: 3}
   enemyCount: 5
   spawnInterval: 0.5
@@ -16365,6 +16396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49b0251bd4cdb6df28da78eee84bbee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AmmoPickup
+  balanceId: 
   ammoAmount: 5
 --- !u!61 &1771295264
 BoxCollider2D:
@@ -16515,6 +16547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f5cb86f0bcbee84f8c5bb5c57602245, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
+  balanceId: 
   enemyPrefab: {fileID: 2839910469423133412, guid: c8aa63cfde34b5c4c8217bdf1d8e58fe, type: 3}
   enemyCount: 5
   spawnInterval: 0.5
@@ -16800,6 +16833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49b0251bd4cdb6df28da78eee84bbee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AmmoPickup
+  balanceId: 
   ammoAmount: 5
 --- !u!61 &1812059592
 BoxCollider2D:
@@ -17332,6 +17366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49b0251bd4cdb6df28da78eee84bbee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AmmoPickup
+  balanceId: 
   ammoAmount: 5
 --- !u!61 &1885765959
 BoxCollider2D:
@@ -17611,6 +17646,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c24ca8d4dfea3bac8b1e556b8f1044d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Checkpoint
+  balanceId: 
   checkpointIndex: 0
   progressPercent: 25
 --- !u!61 &1961487584
@@ -17764,6 +17800,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49b0251bd4cdb6df28da78eee84bbee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AmmoPickup
+  balanceId: 
   ammoAmount: 5
 --- !u!61 &1999662602
 BoxCollider2D:
@@ -17916,6 +17953,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49b0251bd4cdb6df28da78eee84bbee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AmmoPickup
+  balanceId: 
   ammoAmount: 5
 --- !u!61 &2002084724
 BoxCollider2D:
@@ -18651,6 +18689,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49b0251bd4cdb6df28da78eee84bbee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AmmoPickup
+  balanceId: 
   ammoAmount: 5
 --- !u!61 &2146185160
 BoxCollider2D:
