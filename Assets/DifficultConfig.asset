@@ -12,220 +12,138 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cabb61645ce4e79827156d63472b16c, type: 3}
   m_Name: DifficultConfig
   m_EditorClassIdentifier: Assembly-CSharp::DifficultConfig
-  CurrentDifficult: 0
-  ammoPrefab: {fileID: 694305583747153484, guid: a0fa2a809e85e84bcb0c433ccfdafcf1, type: 3}
-  checkpointPrefab: {fileID: 8658743102162504116, guid: a178eb5cd30c355a9b2281be27d54ad7, type: 3}
-  spawnerPrefab: {fileID: 9164094731673432275, guid: 0d2af00008e85db7795ff317f65f47c5, type: 3}
-  triggerPrefab: {fileID: 4024477737025874164, guid: 9b27ad101d0738faabc90c308dcb1977, type: 3}
-  enemyPrefabs:
-  - {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
-  - {fileID: 2839910469423133412, guid: c8aa63cfde34b5c4c8217bdf1d8e58fe, type: 3}
-  levelJson: "{\n    \"Levels\": [\n        {\n            \"DifficultType\": 0,\n           
-    \"AmmoPositions\": [\n                {\n                    \"x\": 28.100000381469728,\n                   
-    \"y\": 29.290000915527345,\n                    \"z\": 0.0\n                },\n               
-    {\n                    \"x\": -4.520000457763672,\n                    \"y\":
-    13.430000305175782,\n                    \"z\": 0.0\n                },\n               
-    {\n                    \"x\": -2.799999237060547,\n                    \"y\":
-    27.950000762939454,\n                    \"z\": 0.0\n                },\n               
-    {\n                    \"x\": -13.809999465942383,\n                    \"y\":
-    45.31999969482422,\n                    \"z\": 0.0\n                },\n               
-    {\n                    \"x\": 30.170000076293947,\n                    \"y\":
-    28.81999969482422,\n                    \"z\": 0.0\n                },\n               
-    {\n                    \"x\": 30.010000228881837,\n                    \"y\":
-    40.05999755859375,\n                    \"z\": 0.0\n                },\n               
-    {\n                    \"x\": 17.260000228881837,\n                    \"y\":
-    53.34000015258789,\n                    \"z\": 0.0\n                },\n               
-    {\n                    \"x\": 12.440000534057618,\n                    \"y\":
-    22.979999542236329,\n                    \"z\": 0.0\n                },\n               
-    {\n                    \"x\": 10.5600004196167,\n                    \"y\": 36.720001220703128,\n                   
-    \"z\": 0.0\n                },\n                {\n                    \"x\":
-    17.18000030517578,\n                    \"y\": 53.95000076293945,\n                   
-    \"z\": 0.0\n                },\n                {\n                    \"x\":
-    -9.269998550415039,\n                    \"y\": 10.190000534057618,\n                   
-    \"z\": 0.0\n                },\n                {\n                    \"x\":
-    -5.569999694824219,\n                    \"y\": 40.25,\n                    \"z\":
-    0.0\n                },\n                {\n                    \"x\": 10.680000305175782,\n                   
-    \"y\": 30.850000381469728,\n                    \"z\": 0.0\n                },\n               
-    {\n                    \"x\": -14.019998550415039,\n                    \"y\":
-    38.41999816894531,\n                    \"z\": 0.0\n                },\n               
-    {\n                    \"x\": -14.35999870300293,\n                    \"y\":
-    21.280000686645509,\n                    \"z\": 0.0\n                },\n               
-    {\n                    \"x\": 1.9400005340576172,\n                    \"y\":
-    13.539999961853028,\n                    \"z\": 0.0\n                },\n               
-    {\n                    \"x\": -16.21000099182129,\n                    \"y\":
-    10.3100004196167,\n                    \"z\": 0.0\n                },\n               
-    {\n                    \"x\": -13.479999542236329,\n                    \"y\":
-    21.329999923706056,\n                    \"z\": 0.0\n                },\n               
-    {\n                    \"x\": 29.560001373291017,\n                    \"y\":
-    39.95000076293945,\n                    \"z\": 0.0\n                },\n               
-    {\n                    \"x\": 11.940000534057618,\n                    \"y\":
-    47.11000061035156,\n                    \"z\": 0.0\n                },\n               
-    {\n                    \"x\": -3.969999313354492,\n                    \"y\":
-    53.220001220703128,\n                    \"z\": 0.0\n                },\n               
-    {\n                    \"x\": 9.0600004196167,\n                    \"y\": 53.38999938964844,\n                   
-    \"z\": 0.0\n                },\n                {\n                    \"x\":
-    -1.010000228881836,\n                    \"y\": 20.389999389648439,\n                   
-    \"z\": 0.0\n                }\n            ],\n            \"Checkpoints\": [\n               
-    {\n                    \"Position\": {\n                        \"x\": -1.264700174331665,\n                       
-    \"y\": 17.848899841308595,\n                        \"z\": 0.0\n                   
-    },\n                    \"Scale\": {\n                        \"x\": 11.215885162353516,\n                       
-    \"y\": 1.1185939311981202,\n                        \"z\": 1.0\n                   
-    },\n                    \"RotationZ\": 0.0,\n                    \"ColliderSize\":
-    {\n                        \"x\": 1.0,\n                        \"y\": 1.0\n                   
-    },\n                    \"ColliderOffset\": {\n                        \"x\":
-    0.0,\n                        \"y\": 0.0\n                    }\n               
-    }\n            ],\n            \"Triggers\": [\n                {\n                   
-    \"Position\": {\n                        \"x\": -13.343000411987305,\n                       
-    \"y\": 13.395999908447266,\n                        \"z\": 0.0\n                   
-    },\n                    \"Scale\": {\n                        \"x\": 11.313799858093262,\n                       
-    \"y\": 2.9168179035186769,\n                        \"z\": 1.0\n                   
-    },\n                    \"RotationZ\": 0.0,\n                    \"ColliderSize\":
-    {\n                        \"x\": 1.0,\n                        \"y\": 1.0\n                   
-    },\n                    \"ColliderOffset\": {\n                        \"x\":
-    0.0,\n                        \"y\": 0.0\n                    }\n               
-    },\n                {\n                    \"Position\": {\n                       
-    \"x\": 6.63700008392334,\n                        \"y\": 22.676000595092775,\n                       
-    \"z\": 0.0\n                    },\n                    \"Scale\": {\n                       
-    \"x\": 3.974212646484375,\n                        \"y\": 8.127938270568848,\n                       
-    \"z\": 1.0\n                    },\n                    \"RotationZ\": 0.0,\n                   
-    \"ColliderSize\": {\n                        \"x\": 1.0,\n                       
-    \"y\": 1.0\n                    },\n                    \"ColliderOffset\": {\n                       
-    \"x\": 0.0,\n                        \"y\": 0.0\n                    }\n               
-    },\n                {\n                    \"Position\": {\n                       
-    \"x\": -13.123000144958496,\n                        \"y\": 30.59600067138672,\n                       
-    \"z\": 0.0\n                    },\n                    \"Scale\": {\n                       
-    \"x\": 10.263007164001465,\n                        \"y\": 8.149070739746094,\n                       
-    \"z\": 1.0\n                    },\n                    \"RotationZ\": 0.0,\n                   
-    \"ColliderSize\": {\n                        \"x\": 1.0,\n                       
-    \"y\": 1.0\n                    },\n                    \"ColliderOffset\": {\n                       
-    \"x\": 0.0,\n                        \"y\": 0.0\n                    }\n               
-    },\n                {\n                    \"Position\": {\n                       
-    \"x\": -1.690500020980835,\n                        \"y\": 2.2985999584198,\n                       
-    \"z\": 0.0\n                    },\n                    \"Scale\": {\n                       
-    \"x\": 11.888161659240723,\n                        \"y\": 1.9459490776062012,\n                       
-    \"z\": 1.0\n                    },\n                    \"RotationZ\": 0.0,\n                   
-    \"ColliderSize\": {\n                        \"x\": 1.0,\n                       
-    \"y\": 1.0\n                    },\n                    \"ColliderOffset\": {\n                       
-    \"x\": 0.0,\n                        \"y\": 0.0\n                    }\n               
-    },\n                {\n                    \"Position\": {\n                       
-    \"x\": 29.907001495361329,\n                        \"y\": 52.395999908447269,\n                       
-    \"z\": 0.0\n                    },\n                    \"Scale\": {\n                       
-    \"x\": 10.263007164001465,\n                        \"y\": 8.149070739746094,\n                       
-    \"z\": 1.0\n                    },\n                    \"RotationZ\": 0.0,\n                   
-    \"ColliderSize\": {\n                        \"x\": 1.0,\n                       
-    \"y\": 1.0\n                    },\n                    \"ColliderOffset\": {\n                       
-    \"x\": 0.0,\n                        \"y\": 0.0\n                    }\n               
-    },\n                {\n                    \"Position\": {\n                       
-    \"x\": -13.433000564575196,\n                        \"y\": 52.09599685668945,\n                       
-    \"z\": 0.0\n                    },\n                    \"Scale\": {\n                       
-    \"x\": 10.263007164001465,\n                        \"y\": 8.149070739746094,\n                       
-    \"z\": 1.0\n                    },\n                    \"RotationZ\": 0.0,\n                   
-    \"ColliderSize\": {\n                        \"x\": 1.0,\n                       
-    \"y\": 1.0\n                    },\n                    \"ColliderOffset\": {\n                       
-    \"x\": 0.0,\n                        \"y\": 0.0\n                    }\n               
-    },\n                {\n                    \"Position\": {\n                       
-    \"x\": 4.60699987411499,\n                        \"y\": 45.865997314453128,\n                       
-    \"z\": 0.0\n                    },\n                    \"Scale\": {\n                       
-    \"x\": 10.263007164001465,\n                        \"y\": 8.149070739746094,\n                       
-    \"z\": 1.0\n                    },\n                    \"RotationZ\": 0.0,\n                   
-    \"ColliderSize\": {\n                        \"x\": 1.0,\n                       
-    \"y\": 1.0\n                    },\n                    \"ColliderOffset\": {\n                       
-    \"x\": 0.0,\n                        \"y\": 0.0\n                    }\n               
-    },\n                {\n                    \"Position\": {\n                       
-    \"x\": 29.867000579833986,\n                        \"y\": 22.666000366210939,\n                       
-    \"z\": 0.0\n                    },\n                    \"Scale\": {\n                       
-    \"x\": 10.263007164001465,\n                        \"y\": 8.149070739746094,\n                       
-    \"z\": 1.0\n                    },\n                    \"RotationZ\": 0.0,\n                   
-    \"ColliderSize\": {\n                        \"x\": 1.0,\n                       
-    \"y\": 1.0\n                    },\n                    \"ColliderOffset\": {\n                       
-    \"x\": 0.0,\n                        \"y\": 0.0\n                    }\n               
-    },\n                {\n                    \"Position\": {\n                       
-    \"x\": 19.308500289916993,\n                        \"y\": 30.838701248168947,\n                       
-    \"z\": 0.0\n                    },\n                    \"Scale\": {\n                       
-    \"x\": 10.309640884399414,\n                        \"y\": 6.70070743560791,\n                       
-    \"z\": 1.0\n                    },\n                    \"RotationZ\": 0.0,\n                   
-    \"ColliderSize\": {\n                        \"x\": 1.0,\n                       
-    \"y\": 1.0\n                    },\n                    \"ColliderOffset\": {\n                       
-    \"x\": 0.0,\n                        \"y\": 0.0\n                    }\n               
-    }\n            ],\n            \"Spawners\": [\n                {\n                   
-    \"SpawnerPosition\": {\n                        \"x\": -4.493000030517578,\n                       
-    \"y\": 46.645999908447269,\n                        \"z\": 0.0\n                   
-    },\n                    \"TriggerIndex\": 5,\n                    \"EnemyPrefabIndex\":
-    0,\n                    \"EnemyCount\": 5,\n                    \"SpawnInterval\":
-    0.5,\n                    \"SpawnRadius\": 2.4200000762939455\n               
-    },\n                {\n                    \"SpawnerPosition\": {\n                       
-    \"x\": -13.433000564575196,\n                        \"y\": 19.006000518798829,\n                       
-    \"z\": 0.0\n                    },\n                    \"TriggerIndex\": 2,\n                   
-    \"EnemyPrefabIndex\": 0,\n                    \"EnemyCount\": 5,\n                   
-    \"SpawnInterval\": 0.5,\n                    \"SpawnRadius\": 3.799999952316284\n               
-    },\n                {\n                    \"SpawnerPosition\": {\n                       
-    \"x\": -11.282999992370606,\n                        \"y\": 5.446000099182129,\n                       
-    \"z\": 0.0\n                    },\n                    \"TriggerIndex\": 0,\n                   
-    \"EnemyPrefabIndex\": 0,\n                    \"EnemyCount\": 5,\n                   
-    \"SpawnInterval\": 0.5,\n                    \"SpawnRadius\": 2.7100000381469728\n               
-    },\n                {\n                    \"SpawnerPosition\": {\n                       
-    \"x\": 2.7869997024536135,\n                        \"y\": 30.766000747680665,\n                       
-    \"z\": 0.0\n                    },\n                    \"TriggerIndex\": 8,\n                   
-    \"EnemyPrefabIndex\": 0,\n                    \"EnemyCount\": 5,\n                   
-    \"SpawnInterval\": 0.5,\n                    \"SpawnRadius\": 2.240000009536743\n               
-    },\n                {\n                    \"SpawnerPosition\": {\n                       
-    \"x\": 21.567001342773439,\n                        \"y\": 46.50599670410156,\n                       
-    \"z\": 0.0\n                    },\n                    \"TriggerIndex\": 6,\n                   
-    \"EnemyPrefabIndex\": 0,\n                    \"EnemyCount\": 5,\n                   
-    \"SpawnInterval\": 0.5,\n                    \"SpawnRadius\": 2.3399999141693117\n               
-    },\n                {\n                    \"SpawnerPosition\": {\n                       
-    \"x\": 30.137001037597658,\n                        \"y\": 32.1359977722168,\n                       
-    \"z\": 0.0\n                    },\n                    \"TriggerIndex\": 7,\n                   
-    \"EnemyPrefabIndex\": 0,\n                    \"EnemyCount\": 5,\n                   
-    \"SpawnInterval\": 0.5,\n                    \"SpawnRadius\": 3.7799999713897707\n               
-    },\n                {\n                    \"SpawnerPosition\": {\n                       
-    \"x\": 17.027000427246095,\n                        \"y\": 22.986000061035158,\n                       
-    \"z\": 0.0\n                    },\n                    \"TriggerIndex\": 1,\n                   
-    \"EnemyPrefabIndex\": 0,\n                    \"EnemyCount\": 5,\n                   
-    \"SpawnInterval\": 0.5,\n                    \"SpawnRadius\": 2.950000047683716\n               
-    },\n                {\n                    \"SpawnerPosition\": {\n                       
-    \"x\": 30.19700050354004,\n                        \"y\": 43.51599884033203,\n                       
-    \"z\": 0.0\n                    },\n                    \"TriggerIndex\": 7,\n                   
-    \"EnemyPrefabIndex\": 0,\n                    \"EnemyCount\": 5,\n                   
-    \"SpawnInterval\": 0.5,\n                    \"SpawnRadius\": 3.880000114440918\n               
-    },\n                {\n                    \"SpawnerPosition\": {\n                       
-    \"x\": 21.317001342773439,\n                        \"y\": 31.006000518798829,\n                       
-    \"z\": 0.0\n                    },\n                    \"TriggerIndex\": 8,\n                   
-    \"EnemyPrefabIndex\": 0,\n                    \"EnemyCount\": 5,\n                   
-    \"SpawnInterval\": 0.5,\n                    \"SpawnRadius\": 2.640000104904175\n               
-    },\n                {\n                    \"SpawnerPosition\": {\n                       
-    \"x\": 19.917001724243165,\n                        \"y\": 38.3859977722168,\n                       
-    \"z\": 0.0\n                    },\n                    \"TriggerIndex\": 6,\n                   
-    \"EnemyPrefabIndex\": 0,\n                    \"EnemyCount\": 5,\n                   
-    \"SpawnInterval\": 0.5,\n                    \"SpawnRadius\": 2.2300000190734865\n               
-    },\n                {\n                    \"SpawnerPosition\": {\n                       
-    \"x\": -11.232999801635743,\n                        \"y\": 42.685997009277347,\n                       
-    \"z\": 0.0\n                    },\n                    \"TriggerIndex\": 5,\n                   
-    \"EnemyPrefabIndex\": 0,\n                    \"EnemyCount\": 5,\n                   
-    \"SpawnInterval\": 0.5,\n                    \"SpawnRadius\": 2.559999942779541\n               
-    },\n                {\n                    \"SpawnerPosition\": {\n                       
-    \"x\": 20.227001190185548,\n                        \"y\": 53.465999603271487,\n                       
-    \"z\": 0.0\n                    },\n                    \"TriggerIndex\": 4,\n                   
-    \"EnemyPrefabIndex\": 0,\n                    \"EnemyCount\": 5,\n                   
-    \"SpawnInterval\": 0.5,\n                    \"SpawnRadius\": 2.509999990463257\n               
-    },\n                {\n                    \"SpawnerPosition\": {\n                       
-    \"x\": -1.5429999828338624,\n                        \"y\": 10.025999069213868,\n                       
-    \"z\": 0.0\n                    },\n                    \"TriggerIndex\": 3,\n                   
-    \"EnemyPrefabIndex\": 1,\n                    \"EnemyCount\": 5,\n                   
-    \"SpawnInterval\": 0.5,\n                    \"SpawnRadius\": 4.309999942779541\n               
-    },\n                {\n                    \"SpawnerPosition\": {\n                       
-    \"x\": -2.5429999828338625,\n                        \"y\": 22.836000442504884,\n                       
-    \"z\": 0.0\n                    },\n                    \"TriggerIndex\": 3,\n                   
-    \"EnemyPrefabIndex\": 0,\n                    \"EnemyCount\": 5,\n                   
-    \"SpawnInterval\": 0.5,\n                    \"SpawnRadius\": 2.8399999141693117\n               
-    },\n                {\n                    \"SpawnerPosition\": {\n                       
-    \"x\": -14.743000030517579,\n                        \"y\": 5.796000003814697,\n                       
-    \"z\": 0.0\n                    },\n                    \"TriggerIndex\": 0,\n                   
-    \"EnemyPrefabIndex\": 0,\n                    \"EnemyCount\": 5,\n                   
-    \"SpawnInterval\": 0.5,\n                    \"SpawnRadius\": 2.6700000762939455\n               
-    },\n                {\n                    \"SpawnerPosition\": {\n                       
-    \"x\": -14.982999801635743,\n                        \"y\": 40.92599868774414,\n                       
-    \"z\": 0.0\n                    },\n                    \"TriggerIndex\": 5,\n                   
-    \"EnemyPrefabIndex\": 0,\n                    \"EnemyCount\": 5,\n                   
-    \"SpawnInterval\": 0.5,\n                    \"SpawnRadius\": 3.2699999809265138\n               
-    }\n            ]\n        }\n    ]\n}"
+  difficult: 0
+  profile:
+    playerStartAmmo: 12
+    enemyMoveSpeed: 2.8
+    enemyDamage: 1
+    enemyDamageInterval: 1
+    spawners:
+    - id: Spawner (12)
+      enemyPrefab: {fileID: 2839910469423133412, guid: c8aa63cfde34b5c4c8217bdf1d8e58fe, type: 3}
+      enemyCount: 5
+      spawnInterval: 0.5
+      spawnRadius: 4.13
+    - id: Spawner (1)
+      enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
+      enemyCount: 5
+      spawnInterval: 0.5
+      spawnRadius: 3.62
+    - id: Spawner (6)
+      enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
+      enemyCount: 5
+      spawnInterval: 0.5
+      spawnRadius: 2.95
+    - id: Spawner (4)
+      enemyPrefab: {fileID: 2839910469423133412, guid: c8aa63cfde34b5c4c8217bdf1d8e58fe, type: 3}
+      enemyCount: 5
+      spawnInterval: 0.5
+      spawnRadius: 2.34
+    - id: Spawner (16)
+      enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
+      enemyCount: 5
+      spawnInterval: 0.5
+      spawnRadius: 2.88
+    - id: Spawner (11)
+      enemyPrefab: {fileID: 2839910469423133412, guid: c8aa63cfde34b5c4c8217bdf1d8e58fe, type: 3}
+      enemyCount: 5
+      spawnInterval: 0.5
+      spawnRadius: 2.51
+    - id: Spawner (3)
+      enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
+      enemyCount: 5
+      spawnInterval: 0.5
+      spawnRadius: 2.24
+    - id: Spawner (15)
+      enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
+      enemyCount: 5
+      spawnInterval: 0.5
+      spawnRadius: 2.84
+    - id: Spawner (2)
+      enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
+      enemyCount: 5
+      spawnInterval: 0.5
+      spawnRadius: 2.71
+    - id: Spawner (13)
+      enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
+      enemyCount: 5
+      spawnInterval: 0.5
+      spawnRadius: 2.84
+    - id: Spawner (7)
+      enemyPrefab: {fileID: 2839910469423133412, guid: c8aa63cfde34b5c4c8217bdf1d8e58fe, type: 3}
+      enemyCount: 5
+      spawnInterval: 0.5
+      spawnRadius: 3.4
+    - id: Spawner (14)
+      enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
+      enemyCount: 5
+      spawnInterval: 0.5
+      spawnRadius: 2.67
+    - id: Spawner (8)
+      enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
+      enemyCount: 5
+      spawnInterval: 0.5
+      spawnRadius: 2.64
+    - id: Spawner (9)
+      enemyPrefab: {fileID: 2839910469423133412, guid: c8aa63cfde34b5c4c8217bdf1d8e58fe, type: 3}
+      enemyCount: 5
+      spawnInterval: 0.5
+      spawnRadius: 2.23
+    ammoPickups:
+    - id: AmmoPickup(Clone)
+      ammoAmount: 5
+    - id: AmmoPickup(Clone)
+      ammoAmount: 5
+    - id: AmmoPickup(Clone) (6)
+      ammoAmount: 5
+    - id: AmmoPickup(Clone) (4)
+      ammoAmount: 5
+    - id: AmmoPickup(Clone)
+      ammoAmount: 5
+    - id: AmmoPickup(Clone)
+      ammoAmount: 5
+    - id: AmmoPickup(Clone)
+      ammoAmount: 5
+    - id: AmmoPickup(Clone)
+      ammoAmount: 5
+    - id: AmmoPickup(Clone)
+      ammoAmount: 5
+    - id: AmmoPickup(Clone)
+      ammoAmount: 5
+    - id: AmmoPickup(Clone)
+      ammoAmount: 5
+    - id: AmmoPickup(Clone)
+      ammoAmount: 5
+    - id: AmmoPickup(Clone)
+      ammoAmount: 5
+    - id: AmmoPickup(Clone)
+      ammoAmount: 5
+    - id: AmmoPickup(Clone) (3)
+      ammoAmount: 5
+    - id: AmmoPickup(Clone)
+      ammoAmount: 5
+    - id: AmmoPickup(Clone) (1)
+      ammoAmount: 5
+    - id: AmmoPickup(Clone)
+      ammoAmount: 5
+    - id: AmmoPickup(Clone)
+      ammoAmount: 5
+    - id: AmmoPickup(Clone)
+      ammoAmount: 5
+    - id: AmmoPickup(Clone)
+      ammoAmount: 5
+    - id: AmmoPickup(Clone)
+      ammoAmount: 5
+    - id: AmmoPickup(Clone)
+      ammoAmount: 5
+    - id: AmmoPickup(Clone) (2)
+      ammoAmount: 5
+    - id: AmmoPickup(Clone) (5)
+      ammoAmount: 5
+    checkpoints:
+    - id: Checkpoint(Clone)
+      enabled: 1
+    - id: Checkpoint(Clone) (1)
+      enabled: 1
+    - id: Checkpoint(Clone) (2)
+      enabled: 1

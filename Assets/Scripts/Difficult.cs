@@ -6,9 +6,6 @@
         Normal,
         Hard
     }
-    
+
     public DifficultType CurrentDifficult;
-    
-    
-    
 }

@@ -62,6 +62,8 @@ public class GameFlowManager : MonoBehaviour
         Time.timeScale = 1f;
         isPlaying = true;
 
+        AudioManager.Instance?.PlayMusic();
+
         // Секундомер сессии стартует ИМЕННО здесь, а не при загрузке сцены
         if (TelemetryManager.Instance != null)
             TelemetryManager.Instance.BeginSession();
@@ -104,6 +106,8 @@ public class GameFlowManager : MonoBehaviour
         isPaused = false;
         if (pausePanel != null) pausePanel.SetActive(false);
         SetPlayerControl(false);
+
+        AudioManager.Instance?.StopMusic();
 
         TelemetrySessionData stats = null;
         if (TelemetryManager.Instance != null)
