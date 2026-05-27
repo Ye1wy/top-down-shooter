@@ -12,138 +12,122 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cabb61645ce4e79827156d63472b16c, type: 3}
   m_Name: DifficultConfig
   m_EditorClassIdentifier: Assembly-CSharp::DifficultConfig
-  difficult: 0
+  difficult: 2
   profile:
-    playerStartAmmo: 12
-    enemyMoveSpeed: 2.8
+    playerStartAmmo: 4
+    enemyMoveSpeed: 3.9
     enemyDamage: 1
     enemyDamageInterval: 1
     spawners:
-    - id: Spawner (12)
-      enemyPrefab: {fileID: 2839910469423133412, guid: c8aa63cfde34b5c4c8217bdf1d8e58fe, type: 3}
-      enemyCount: 5
-      spawnInterval: 0.5
-      spawnRadius: 4.13
-    - id: Spawner (1)
-      enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
-      enemyCount: 5
-      spawnInterval: 0.5
-      spawnRadius: 3.62
     - id: Spawner (6)
       enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
-      enemyCount: 5
+      enemyCount: 9
       spawnInterval: 0.5
       spawnRadius: 2.95
-    - id: Spawner (4)
-      enemyPrefab: {fileID: 2839910469423133412, guid: c8aa63cfde34b5c4c8217bdf1d8e58fe, type: 3}
-      enemyCount: 5
-      spawnInterval: 0.5
-      spawnRadius: 2.34
-    - id: Spawner (16)
-      enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
-      enemyCount: 5
-      spawnInterval: 0.5
-      spawnRadius: 2.88
-    - id: Spawner (11)
-      enemyPrefab: {fileID: 2839910469423133412, guid: c8aa63cfde34b5c4c8217bdf1d8e58fe, type: 3}
-      enemyCount: 5
-      spawnInterval: 0.5
-      spawnRadius: 2.51
-    - id: Spawner (3)
-      enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
-      enemyCount: 5
-      spawnInterval: 0.5
-      spawnRadius: 2.24
-    - id: Spawner (15)
-      enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
-      enemyCount: 5
-      spawnInterval: 0.5
-      spawnRadius: 2.84
-    - id: Spawner (2)
-      enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
-      enemyCount: 5
-      spawnInterval: 0.5
-      spawnRadius: 2.71
     - id: Spawner (13)
       enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
-      enemyCount: 5
+      enemyCount: 9
       spawnInterval: 0.5
       spawnRadius: 2.84
     - id: Spawner (7)
       enemyPrefab: {fileID: 2839910469423133412, guid: c8aa63cfde34b5c4c8217bdf1d8e58fe, type: 3}
-      enemyCount: 5
+      enemyCount: 9
       spawnInterval: 0.5
       spawnRadius: 3.4
     - id: Spawner (14)
       enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
-      enemyCount: 5
+      enemyCount: 9
       spawnInterval: 0.5
       spawnRadius: 2.67
-    - id: Spawner (8)
-      enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
-      enemyCount: 5
-      spawnInterval: 0.5
-      spawnRadius: 2.64
     - id: Spawner (9)
       enemyPrefab: {fileID: 2839910469423133412, guid: c8aa63cfde34b5c4c8217bdf1d8e58fe, type: 3}
-      enemyCount: 5
+      enemyCount: 9
       spawnInterval: 0.5
       spawnRadius: 2.23
+    - id: Spawner (12)
+      enemyPrefab: {fileID: 2839910469423133412, guid: c8aa63cfde34b5c4c8217bdf1d8e58fe, type: 3}
+      enemyCount: 9
+      spawnInterval: 0.5
+      spawnRadius: 4.13
+    - id: Spawner (1)
+      enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
+      enemyCount: 9
+      spawnInterval: 0.5
+      spawnRadius: 3.62
+    - id: Spawner (4)
+      enemyPrefab: {fileID: 2839910469423133412, guid: c8aa63cfde34b5c4c8217bdf1d8e58fe, type: 3}
+      enemyCount: 9
+      spawnInterval: 0.5
+      spawnRadius: 2.34
+    - id: Spawner (16)
+      enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
+      enemyCount: 9
+      spawnInterval: 0.5
+      spawnRadius: 2.88
+    - id: Spawner (11)
+      enemyPrefab: {fileID: 2839910469423133412, guid: c8aa63cfde34b5c4c8217bdf1d8e58fe, type: 3}
+      enemyCount: 9
+      spawnInterval: 0.5
+      spawnRadius: 2.51
+    - id: Spawner (3)
+      enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
+      enemyCount: 9
+      spawnInterval: 0.5
+      spawnRadius: 2.24
+    - id: Spawner (15)
+      enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
+      enemyCount: 9
+      spawnInterval: 0.5
+      spawnRadius: 2.84
+    - id: Spawner (2)
+      enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
+      enemyCount: 9
+      spawnInterval: 0.5
+      spawnRadius: 2.71
+    - id: Spawner (8)
+      enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
+      enemyCount: 9
+      spawnInterval: 0.5
+      spawnRadius: 2.64
     ammoPickups:
     - id: AmmoPickup(Clone)
-      ammoAmount: 5
-    - id: AmmoPickup(Clone)
-      ammoAmount: 5
-    - id: AmmoPickup(Clone) (6)
-      ammoAmount: 5
+      ammoAmount: 10
     - id: AmmoPickup(Clone) (4)
-      ammoAmount: 5
+      ammoAmount: 9
     - id: AmmoPickup(Clone)
-      ammoAmount: 5
+      ammoAmount: 11
     - id: AmmoPickup(Clone)
-      ammoAmount: 5
+      ammoAmount: 10
     - id: AmmoPickup(Clone)
-      ammoAmount: 5
-    - id: AmmoPickup(Clone)
-      ammoAmount: 5
-    - id: AmmoPickup(Clone)
-      ammoAmount: 5
-    - id: AmmoPickup(Clone)
-      ammoAmount: 5
-    - id: AmmoPickup(Clone)
-      ammoAmount: 5
-    - id: AmmoPickup(Clone)
-      ammoAmount: 5
-    - id: AmmoPickup(Clone)
-      ammoAmount: 5
+      ammoAmount: 11
     - id: AmmoPickup(Clone)
       ammoAmount: 5
     - id: AmmoPickup(Clone) (3)
-      ammoAmount: 5
+      ammoAmount: 10
     - id: AmmoPickup(Clone)
-      ammoAmount: 5
+      ammoAmount: 10
     - id: AmmoPickup(Clone) (1)
-      ammoAmount: 5
-    - id: AmmoPickup(Clone)
-      ammoAmount: 5
-    - id: AmmoPickup(Clone)
-      ammoAmount: 5
-    - id: AmmoPickup(Clone)
-      ammoAmount: 5
-    - id: AmmoPickup(Clone)
-      ammoAmount: 5
-    - id: AmmoPickup(Clone)
-      ammoAmount: 5
+      ammoAmount: 10
     - id: AmmoPickup(Clone)
       ammoAmount: 5
     - id: AmmoPickup(Clone) (2)
       ammoAmount: 5
+    - id: AmmoPickup(Clone)
+      ammoAmount: 10
     - id: AmmoPickup(Clone) (5)
-      ammoAmount: 5
+      ammoAmount: 10
+    - id: AmmoPickup(Clone)
+      ammoAmount: 10
+    - id: AmmoPickup(Clone)
+      ammoAmount: 12
+    - id: AmmoPickup(Clone)
+      ammoAmount: 12
+    - id: AmmoPickup(Clone)
+      ammoAmount: 10
     checkpoints:
-    - id: Checkpoint(Clone)
-      enabled: 1
     - id: Checkpoint(Clone) (1)
+      enabled: 1
+    - id: Checkpoint(Clone)
       enabled: 1
     - id: Checkpoint(Clone) (2)
       enabled: 1
