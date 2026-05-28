@@ -180,12 +180,11 @@ public class SessionController : MonoBehaviour
             }
             else
             {
-                // Сервер недоступен — offline-режим для отладки в редакторе.
-                // В реальном вебе сюда попадать не должны: это видно по случайному id.
+                // Сервер недоступен — offline-режим. Данные пойдут в локальный файл (см. SaveLocalFallback).
                 assignedId = Guid.NewGuid().ToString();
                 assignedNumber = Mathf.Max(1, offlineParticipantNumber);
-                Debug.LogWarning($"Сервер недоступен ({req.error}). OFFLINE-режим, " +
-                                 $"данные НЕ уйдут на сервер. id={assignedId}, #{assignedNumber}.");
+                Debug.LogWarning($"Сервер недоступен ({req.error}). OFFLINE-режим: телеметрия будет сохранена " +
+                                 $"локально в {Application.persistentDataPath}/telemetry/. id={assignedId}, #{assignedNumber}.");
             }
         }
     }
@@ -265,9 +264,38 @@ public class SessionController : MonoBehaviour
             yield return req.SendWebRequest();
 
             if (req.result != UnityWebRequest.Result.Success)
+            {
                 Debug.LogError($"Не удалось отправить телеметрию: {req.error}");
+                SaveLocalFallback();
+            }
             else
+            {
                 Debug.Log($"Телеметрия отправлена (прогонов: {participant.runs.Count}).");
+            }
+        }
+    }
+
+    private void SaveLocalFallback()
+    {
+        try
+        {
+            // Pretty-print — чтобы файл удобно было открыть глазами при отладке.
+            string json = JsonUtility.ToJson(participant, true);
+
+            string folder = System.IO.Path.Combine(Application.persistentDataPath, "telemetry");
+            System.IO.Directory.CreateDirectory(folder);
+
+            // Один файл на сессию: каждое условие перезаписывает его актуальной версией participant.
+            // Так же поступает и сервер — один файл на участника, накапливающий runs.
+            string fileName = $"participant_{participant.participant_number}_{participant.experiment_start}.json";
+            string fullPath = System.IO.Path.Combine(folder, fileName);
+
+            System.IO.File.WriteAllText(fullPath, json);
+            Debug.Log($"Телеметрия сохранена локально: {fullPath}");
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogError($"Не удалось записать локальный файл телеметрии: {ex.Message}");
         }
     }
 
