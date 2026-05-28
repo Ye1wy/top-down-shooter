@@ -21,6 +21,7 @@ public class SessionController : MonoBehaviour
     [Header("Ссылки в сцене")]
     [SerializeField] private GameFlowManager gameFlow;
     [SerializeField] private SurveyPanel surveyPanel;
+    [SerializeField] private PreliminaryPanel preliminaryPanel;
     [SerializeField] private GameObject finishedPanel;
     [SerializeField] private GameObject loadingPanel;   // опционально: «Загрузка…», пока идёт назначение
 
@@ -42,6 +43,9 @@ public class SessionController : MonoBehaviour
     // сжигать новый номер контрбалансировки и плодить дубль-обрывки).
     private const string PrefId = "study_participant_id";
     private const string PrefNum = "study_participant_number";
+
+    private string participantAgeGroup;
+    private string participantPlayFrequency;
 
     private ParticipantData participant;
     private int[] order;          // последовательность индексов в conditions
@@ -82,6 +86,7 @@ public class SessionController : MonoBehaviour
     private IEnumerator InitializeAndRun()
     {
         if (loadingPanel != null) loadingPanel.SetActive(true);
+        if (preliminaryPanel != null) preliminaryPanel.gameObject.SetActive(false);
 
         // Рефреш страницы: продолжаем тем же участником, новый номер не запрашиваем.
         if (PlayerPrefs.HasKey(PrefId) && PlayerPrefs.HasKey(PrefNum))
@@ -95,11 +100,58 @@ public class SessionController : MonoBehaviour
             yield return RequestAssignment();
         }
 
+        if (loadingPanel != null) loadingPanel.SetActive(false);
+
+        string ageKey = AgeGroupPrefKey();
+        string freqKey = PlayFreqPrefKey();
+
+        if (PlayerPrefs.HasKey(ageKey) && PlayerPrefs.HasKey(freqKey))
+        {
+            participantAgeGroup = PlayerPrefs.GetString(ageKey);
+            participantPlayFrequency = PlayerPrefs.GetString(freqKey);
+        }
+        else
+        {
+            yield return AskDemographics();
+
+            PlayerPrefs.SetString(ageKey, participantAgeGroup);
+            PlayerPrefs.SetString(freqKey, participantPlayFrequency);
+            PlayerPrefs.Save();
+        }
+
         BuildParticipant();
         currentStep = 0;
-
-        if (loadingPanel != null) loadingPanel.SetActive(false);
         BeginCurrentCondition();
+    }
+
+    private string AgeGroupPrefKey() => $"study_participant_age_group_{assignedId}";
+    private string PlayFreqPrefKey() => $"study_participant_play_frequency_{assignedId}";
+
+    private IEnumerator AskDemographics()
+    {
+        if (preliminaryPanel == null)
+        {
+            Debug.LogWarning("PreliminaryPanel не назначена — демография пустая.");
+            participantAgeGroup = string.Empty;
+            participantPlayFrequency = string.Empty;
+            yield break;
+        }
+
+        bool received = false;
+        string ageGroup = string.Empty;
+        string frequency = string.Empty;
+
+        preliminaryPanel.Show((a, f) =>
+        {
+            ageGroup = a;
+            frequency = f;
+            received = true;
+        });
+
+        yield return new WaitUntil(() => received);
+
+        participantAgeGroup = ageGroup;
+        participantPlayFrequency = frequency;
     }
 
     private IEnumerator RequestAssignment()
@@ -148,6 +200,8 @@ public class SessionController : MonoBehaviour
             participant_id = assignedId,
             participant_number = assignedNumber,
             permutation_index = permIndex,
+            age_group = participantAgeGroup,
+            play_frequency = participantPlayFrequency,
             experiment_start = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss"),
         };
         foreach (int idx in order)
