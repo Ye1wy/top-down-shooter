@@ -88,36 +88,11 @@ public class SessionController : MonoBehaviour
         if (loadingPanel != null) loadingPanel.SetActive(true);
         if (preliminaryPanel != null) preliminaryPanel.gameObject.SetActive(false);
 
-        // Рефреш страницы: продолжаем тем же участником, новый номер не запрашиваем.
-        if (PlayerPrefs.HasKey(PrefId) && PlayerPrefs.HasKey(PrefNum))
-        {
-            assignedId = PlayerPrefs.GetString(PrefId);
-            assignedNumber = PlayerPrefs.GetInt(PrefNum);
-            Debug.Log($"Возобновление: тот же участник {assignedId} (#{assignedNumber}).");
-        }
-        else
-        {
-            yield return RequestAssignment();
-        }
+        yield return RequestAssignment();
 
         if (loadingPanel != null) loadingPanel.SetActive(false);
 
-        string ageKey = AgeGroupPrefKey();
-        string freqKey = PlayFreqPrefKey();
-
-        if (PlayerPrefs.HasKey(ageKey) && PlayerPrefs.HasKey(freqKey))
-        {
-            participantAgeGroup = PlayerPrefs.GetString(ageKey);
-            participantPlayFrequency = PlayerPrefs.GetString(freqKey);
-        }
-        else
-        {
-            yield return AskDemographics();
-
-            PlayerPrefs.SetString(ageKey, participantAgeGroup);
-            PlayerPrefs.SetString(freqKey, participantPlayFrequency);
-            PlayerPrefs.Save();
-        }
+        yield return AskDemographics();
 
         BuildParticipant();
         currentStep = 0;
@@ -181,10 +156,6 @@ public class SessionController : MonoBehaviour
             var resp = JsonUtility.FromJson<AssignResponse>(req.downloadHandler.text);
             assignedId = resp.participant_id;
             assignedNumber = resp.participant_number;
-
-            PlayerPrefs.SetString(PrefId, assignedId);
-            PlayerPrefs.SetInt(PrefNum, assignedNumber);
-            PlayerPrefs.Save();
 
             Debug.Log($"Назначен участник {assignedId} (#{assignedNumber}).");
         }

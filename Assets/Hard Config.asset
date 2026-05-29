@@ -12,115 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cabb61645ce4e79827156d63472b16c, type: 3}
   m_Name: Hard Config
   m_EditorClassIdentifier: Assembly-CSharp::DifficultConfig
-  difficult: 0
+  difficult: 2
   profile:
     playerStartAmmo: 16
     enemyMoveSpeed: 4
     enemyDamage: 1
     enemyDamageInterval: 0.6
     spawners:
-    - id: 3c78da55
-      enabled: 1
-      enemyPrefab: {fileID: 124103006116710328, guid: 1a3077beb0c55817099d878743217a90, type: 3}
-      enemyCount: 1
-      spawnInterval: 0.5
-      spawnRadius: 2.71
-    - id: 9742ef4c
-      enabled: 0
-      enemyPrefab: {fileID: 2839910469423133412, guid: c8aa63cfde34b5c4c8217bdf1d8e58fe, type: 3}
-      enemyCount: 2
-      spawnInterval: 0.5
-      spawnRadius: 2.71
-    - id: 584bf6b1
-      enabled: 1
-      enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
-      enemyCount: 2
-      spawnInterval: 0.5
-      spawnRadius: 3.4
-    - id: 0e0c5e0e
-      enabled: 1
-      enemyPrefab: {fileID: 2698914241744142885, guid: cf6d6458cc7bbf07e84315ad0853b663, type: 3}
-      enemyCount: 2
-      spawnInterval: 0.5
-      spawnRadius: 2.95
-    - id: 87412e86
-      enabled: 1
-      enemyPrefab: {fileID: 2698914241744142885, guid: cf6d6458cc7bbf07e84315ad0853b663, type: 3}
-      enemyCount: 1
-      spawnInterval: 0.5
-      spawnRadius: 4.13
-    - id: b1bb1c4a
-      enabled: 1
-      enemyPrefab: {fileID: 2839910469423133412, guid: c8aa63cfde34b5c4c8217bdf1d8e58fe, type: 3}
-      enemyCount: 1
-      spawnInterval: 0.5
-      spawnRadius: 2.71
-    - id: 948e3345
-      enabled: 1
-      enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
-      enemyCount: 2
-      spawnInterval: 0.5
-      spawnRadius: 2.95
-    - id: 975ce82d
-      enabled: 1
-      enemyPrefab: {fileID: 1133040858489822691, guid: 349f4decab70867a783afa0e078941b5, type: 3}
-      enemyCount: 1
-      spawnInterval: 0.5
-      spawnRadius: 4.13
-    - id: b13f6720
-      enabled: 1
-      enemyPrefab: {fileID: 1133040858489822691, guid: 349f4decab70867a783afa0e078941b5, type: 3}
-      enemyCount: 2
-      spawnInterval: 0.5
-      spawnRadius: 2.34
-    - id: 589df4a7
-      enabled: 0
-      enemyPrefab: {fileID: 124103006116710328, guid: 1a3077beb0c55817099d878743217a90, type: 3}
-      enemyCount: 2
-      spawnInterval: 0.5
-      spawnRadius: 2.24
-    - id: ee0e9eb7
-      enabled: 1
-      enemyPrefab: {fileID: 2698914241744142885, guid: cf6d6458cc7bbf07e84315ad0853b663, type: 3}
-      enemyCount: 2
-      spawnInterval: 0.5
-      spawnRadius: 2.95
-    - id: 30ee80df
-      enabled: 1
-      enemyPrefab: {fileID: 124103006116710328, guid: 1a3077beb0c55817099d878743217a90, type: 3}
-      enemyCount: 2
-      spawnInterval: 0.5
-      spawnRadius: 2.95
-    - id: 485f5d79
-      enabled: 1
-      enemyPrefab: {fileID: 2839910469423133412, guid: c8aa63cfde34b5c4c8217bdf1d8e58fe, type: 3}
-      enemyCount: 1
-      spawnInterval: 0.5
-      spawnRadius: 2.67
-    - id: b66631f3
-      enabled: 0
-      enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
-      enemyCount: 3
-      spawnInterval: 0.5
-      spawnRadius: 2.64
-    - id: d9788fa6
-      enabled: 1
-      enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
-      enemyCount: 1
-      spawnInterval: 0.5
-      spawnRadius: 2.64
-    - id: 8d041d26
-      enabled: 0
-      enemyPrefab: {fileID: 2698914241744142885, guid: cf6d6458cc7bbf07e84315ad0853b663, type: 3}
-      enemyCount: 1
-      spawnInterval: 0.5
-      spawnRadius: 2.64
-    - id: 78ba3968
-      enabled: 1
-      enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
-      enemyCount: 2
-      spawnInterval: 0.5
-      spawnRadius: 2.71
     - id: a8a49814
       enabled: 0
       enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
@@ -133,52 +31,34 @@ MonoBehaviour:
       enemyCount: 2
       spawnInterval: 0.5
       spawnRadius: 2.67
-    - id: 5554eb08
+    - id: 3592769d
       enabled: 1
-      enemyPrefab: {fileID: 124103006116710328, guid: 1a3077beb0c55817099d878743217a90, type: 3}
+      enemyPrefab: {fileID: 2698914241744142885, guid: cf6d6458cc7bbf07e84315ad0853b663, type: 3}
       enemyCount: 1
       spawnInterval: 0.5
-      spawnRadius: 4.13
-    - id: f118b550
-      enabled: 1
-      enemyPrefab: {fileID: 124103006116710328, guid: 1a3077beb0c55817099d878743217a90, type: 3}
-      enemyCount: 2
-      spawnInterval: 0.5
-      spawnRadius: 2.95
-    - id: ee4e18a0
-      enabled: 1
-      enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
-      enemyCount: 2
-      spawnInterval: 0.5
-      spawnRadius: 2.84
-    - id: 9ecc0d68
-      enabled: 1
-      enemyPrefab: {fileID: 2839910469423133412, guid: c8aa63cfde34b5c4c8217bdf1d8e58fe, type: 3}
-      enemyCount: 1
-      spawnInterval: 0.5
-      spawnRadius: 2.24
-    - id: 92aad0ee
-      enabled: 1
-      enemyPrefab: {fileID: 1133040858489822691, guid: 349f4decab70867a783afa0e078941b5, type: 3}
-      enemyCount: 1
-      spawnInterval: 0.5
-      spawnRadius: 2.51
+      spawnRadius: 2.71
     - id: ffe7c4e9
       enabled: 1
       enemyPrefab: {fileID: 124103006116710328, guid: 1a3077beb0c55817099d878743217a90, type: 3}
       enemyCount: 2
       spawnInterval: 0.5
       spawnRadius: 2.24
-    - id: f789bf08
+    - id: c4a47a78
       enabled: 1
-      enemyPrefab: {fileID: 2698914241744142885, guid: cf6d6458cc7bbf07e84315ad0853b663, type: 3}
+      enemyPrefab: {fileID: 124103006116710328, guid: 1a3077beb0c55817099d878743217a90, type: 3}
       enemyCount: 1
       spawnInterval: 0.5
       spawnRadius: 3.4
-    - id: e72df70d
+    - id: a119805c
       enabled: 1
-      enemyPrefab: {fileID: 2839910469423133412, guid: c8aa63cfde34b5c4c8217bdf1d8e58fe, type: 3}
+      enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
       enemyCount: 2
+      spawnInterval: 0.5
+      spawnRadius: 2.95
+    - id: 8d041d26
+      enabled: 0
+      enemyPrefab: {fileID: 2698914241744142885, guid: cf6d6458cc7bbf07e84315ad0853b663, type: 3}
+      enemyCount: 1
       spawnInterval: 0.5
       spawnRadius: 2.64
     - id: 9e90fa3e
@@ -187,62 +67,184 @@ MonoBehaviour:
       enemyCount: 1
       spawnInterval: 0.5
       spawnRadius: 2.64
-    - id: 72b5b475
+    - id: d9788fa6
       enabled: 1
-      enemyPrefab: {fileID: 1133040858489822691, guid: 349f4decab70867a783afa0e078941b5, type: 3}
+      enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
       enemyCount: 1
       spawnInterval: 0.5
-      spawnRadius: 2.24
-    - id: 5f599d25
-      enabled: 1
-      enemyPrefab: {fileID: 2839910469423133412, guid: c8aa63cfde34b5c4c8217bdf1d8e58fe, type: 3}
-      enemyCount: 2
-      spawnInterval: 0.5
-      spawnRadius: 2.34
-    - id: a119805c
+      spawnRadius: 2.64
+    - id: 78ba3968
       enabled: 1
       enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
       enemyCount: 2
       spawnInterval: 0.5
-      spawnRadius: 2.95
+      spawnRadius: 2.71
     - id: b5b44b0b
       enabled: 1
       enemyPrefab: {fileID: 2839910469423133412, guid: c8aa63cfde34b5c4c8217bdf1d8e58fe, type: 3}
       enemyCount: 1
       spawnInterval: 0.5
       spawnRadius: 2.95
-    - id: 786de25d
+    - id: 589df4a7
+      enabled: 0
+      enemyPrefab: {fileID: 124103006116710328, guid: 1a3077beb0c55817099d878743217a90, type: 3}
+      enemyCount: 2
+      spawnInterval: 0.5
+      spawnRadius: 2.24
+    - id: 485f5d79
       enabled: 1
       enemyPrefab: {fileID: 2839910469423133412, guid: c8aa63cfde34b5c4c8217bdf1d8e58fe, type: 3}
       enemyCount: 1
       spawnInterval: 0.5
+      spawnRadius: 2.67
+    - id: ee0e9eb7
+      enabled: 1
+      enemyPrefab: {fileID: 2698914241744142885, guid: cf6d6458cc7bbf07e84315ad0853b663, type: 3}
+      enemyCount: 2
+      spawnInterval: 0.5
+      spawnRadius: 2.95
+    - id: 5f599d25
+      enabled: 1
+      enemyPrefab: {fileID: 2839910469423133412, guid: c8aa63cfde34b5c4c8217bdf1d8e58fe, type: 3}
+      enemyCount: 2
+      spawnInterval: 0.5
+      spawnRadius: 2.34
+    - id: 9ecc0d68
+      enabled: 1
+      enemyPrefab: {fileID: 2839910469423133412, guid: c8aa63cfde34b5c4c8217bdf1d8e58fe, type: 3}
+      enemyCount: 1
+      spawnInterval: 0.5
+      spawnRadius: 2.24
+    - id: 948e3345
+      enabled: 1
+      enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
+      enemyCount: 2
+      spawnInterval: 0.5
+      spawnRadius: 2.95
+    - id: e72df70d
+      enabled: 1
+      enemyPrefab: {fileID: 2839910469423133412, guid: c8aa63cfde34b5c4c8217bdf1d8e58fe, type: 3}
+      enemyCount: 2
+      spawnInterval: 0.5
+      spawnRadius: 2.64
+    - id: 5554eb08
+      enabled: 1
+      enemyPrefab: {fileID: 124103006116710328, guid: 1a3077beb0c55817099d878743217a90, type: 3}
+      enemyCount: 1
+      spawnInterval: 0.5
       spawnRadius: 4.13
-    - id: 3592769d
+    - id: f789bf08
       enabled: 1
       enemyPrefab: {fileID: 2698914241744142885, guid: cf6d6458cc7bbf07e84315ad0853b663, type: 3}
       enemyCount: 1
       spawnInterval: 0.5
+      spawnRadius: 3.4
+    - id: 30ee80df
+      enabled: 1
+      enemyPrefab: {fileID: 124103006116710328, guid: 1a3077beb0c55817099d878743217a90, type: 3}
+      enemyCount: 2
+      spawnInterval: 0.5
+      spawnRadius: 2.95
+    - id: b66631f3
+      enabled: 0
+      enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
+      enemyCount: 3
+      spawnInterval: 0.5
+      spawnRadius: 2.64
+    - id: ee4e18a0
+      enabled: 1
+      enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
+      enemyCount: 2
+      spawnInterval: 0.5
+      spawnRadius: 2.84
+    - id: f118b550
+      enabled: 1
+      enemyPrefab: {fileID: 124103006116710328, guid: 1a3077beb0c55817099d878743217a90, type: 3}
+      enemyCount: 2
+      spawnInterval: 0.5
+      spawnRadius: 2.95
+    - id: 72b5b475
+      enabled: 1
+      enemyPrefab: {fileID: 1133040858489822691, guid: 349f4decab70867a783afa0e078941b5, type: 3}
+      enemyCount: 1
+      spawnInterval: 0.5
+      spawnRadius: 2.24
+    - id: 9742ef4c
+      enabled: 0
+      enemyPrefab: {fileID: 2839910469423133412, guid: c8aa63cfde34b5c4c8217bdf1d8e58fe, type: 3}
+      enemyCount: 2
+      spawnInterval: 0.5
       spawnRadius: 2.71
+    - id: 584bf6b1
+      enabled: 1
+      enemyPrefab: {fileID: 8976711272807878588, guid: 3d0a1b1dd1b59c03da63eb90e4bf8971, type: 3}
+      enemyCount: 2
+      spawnInterval: 0.5
+      spawnRadius: 3.4
+    - id: 92aad0ee
+      enabled: 1
+      enemyPrefab: {fileID: 1133040858489822691, guid: 349f4decab70867a783afa0e078941b5, type: 3}
+      enemyCount: 1
+      spawnInterval: 0.5
+      spawnRadius: 2.51
     - id: 2d3c5dff
       enabled: 1
       enemyPrefab: {fileID: 124103006116710328, guid: 1a3077beb0c55817099d878743217a90, type: 3}
       enemyCount: 1
       spawnInterval: 0.5
       spawnRadius: 2.67
-    - id: c4a47a78
+    - id: 975ce82d
+      enabled: 1
+      enemyPrefab: {fileID: 1133040858489822691, guid: 349f4decab70867a783afa0e078941b5, type: 3}
+      enemyCount: 1
+      spawnInterval: 0.5
+      spawnRadius: 4.13
+    - id: 0e0c5e0e
+      enabled: 1
+      enemyPrefab: {fileID: 2698914241744142885, guid: cf6d6458cc7bbf07e84315ad0853b663, type: 3}
+      enemyCount: 2
+      spawnInterval: 0.5
+      spawnRadius: 2.95
+    - id: b1bb1c4a
+      enabled: 1
+      enemyPrefab: {fileID: 2839910469423133412, guid: c8aa63cfde34b5c4c8217bdf1d8e58fe, type: 3}
+      enemyCount: 1
+      spawnInterval: 0.5
+      spawnRadius: 2.71
+    - id: b13f6720
+      enabled: 1
+      enemyPrefab: {fileID: 1133040858489822691, guid: 349f4decab70867a783afa0e078941b5, type: 3}
+      enemyCount: 2
+      spawnInterval: 0.5
+      spawnRadius: 2.34
+    - id: 3c78da55
       enabled: 1
       enemyPrefab: {fileID: 124103006116710328, guid: 1a3077beb0c55817099d878743217a90, type: 3}
       enemyCount: 1
       spawnInterval: 0.5
-      spawnRadius: 3.4
-    spawnTriggers:
-    - id: 6bece803
+      spawnRadius: 2.71
+    - id: 87412e86
       enabled: 1
+      enemyPrefab: {fileID: 2698914241744142885, guid: cf6d6458cc7bbf07e84315ad0853b663, type: 3}
+      enemyCount: 1
+      spawnInterval: 0.5
+      spawnRadius: 4.13
+    - id: 786de25d
+      enabled: 1
+      enemyPrefab: {fileID: 2839910469423133412, guid: c8aa63cfde34b5c4c8217bdf1d8e58fe, type: 3}
+      enemyCount: 1
+      spawnInterval: 0.5
+      spawnRadius: 4.13
+    spawnTriggers:
     - id: 86029087
       enabled: 1
-    - id: d3390d63
+    - id: 63623cd8
+      enabled: 1
+    - id: 6bece803
       enabled: 1
     - id: 8039f6b5
+      enabled: 1
+    - id: 181ae2bb
       enabled: 1
     - id: 64138e16
       enabled: 1
@@ -250,42 +252,16 @@ MonoBehaviour:
       enabled: 1
     - id: 3bc77099
       enabled: 1
-    - id: 181ae2bb
-      enabled: 1
-    - id: 63623cd8
+    - id: d3390d63
       enabled: 1
     ammoPickups:
-    - id: cd00cb81
-      enabled: 0
-      ammoAmount: 3
     - id: 3455d986
       enabled: 0
-      ammoAmount: 3
-    - id: 61ffb1ac
-      enabled: 0
-      ammoAmount: 3
-    - id: ba7a7a40
-      enabled: 1
-      ammoAmount: 3
-    - id: d86a6c2e
-      enabled: 1
-      ammoAmount: 3
-    - id: 06c22e05
-      enabled: 1
       ammoAmount: 3
     - id: bb1e5b03
       enabled: 0
       ammoAmount: 3
     - id: 9bf08eba
-      enabled: 1
-      ammoAmount: 3
-    - id: 7b8e2cc5
-      enabled: 0
-      ammoAmount: 3
-    - id: 99a6012b
-      enabled: 1
-      ammoAmount: 3
-    - id: 0e1feb6b
       enabled: 1
       ammoAmount: 3
     - id: 58a488ea
@@ -294,10 +270,34 @@ MonoBehaviour:
     - id: 8a18415c
       enabled: 0
       ammoAmount: 3
+    - id: cd00cb81
+      enabled: 0
+      ammoAmount: 3
+    - id: 7b8e2cc5
+      enabled: 0
+      ammoAmount: 3
+    - id: d86a6c2e
+      enabled: 1
+      ammoAmount: 3
+    - id: ba7a7a40
+      enabled: 1
+      ammoAmount: 3
+    - id: 06c22e05
+      enabled: 1
+      ammoAmount: 3
+    - id: 99a6012b
+      enabled: 1
+      ammoAmount: 3
+    - id: 61ffb1ac
+      enabled: 0
+      ammoAmount: 3
+    - id: 0e1feb6b
+      enabled: 1
+      ammoAmount: 3
     checkpoints:
-    - id: a6aa828c
+    - id: e9bc2641
       enabled: 0
     - id: a4d72825
       enabled: 0
-    - id: e9bc2641
+    - id: a6aa828c
       enabled: 0
