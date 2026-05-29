@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿#if UNITY_EDITOR
+using UnityEditor;
 using UnityEngine;
 
 [CustomEditor(typeof(DifficultConfig))]
@@ -35,3 +36,4 @@ public class DifficultConfigEditor : Editor
         GUI.backgroundColor = Color.white;
     }
 }
+#endif

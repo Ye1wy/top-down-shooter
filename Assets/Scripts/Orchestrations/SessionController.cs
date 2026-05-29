@@ -157,36 +157,50 @@ public class SessionController : MonoBehaviour
     private IEnumerator RequestAssignment()
     {
         string url = serverUrl.TrimEnd('/') + "/assign";
-        using (var req = new UnityWebRequest(url, "POST"))
+        UnityWebRequest req = null;
+
+        try
         {
+            req = new UnityWebRequest(url, "POST");
             req.uploadHandler = new UploadHandlerRaw(System.Text.Encoding.UTF8.GetBytes("{}"));
             req.downloadHandler = new DownloadHandlerBuffer();
             req.SetRequestHeader("Content-Type", "application/json");
             req.SetRequestHeader("X-Study-Token", studyToken);
-
-            yield return req.SendWebRequest();
-
-            if (req.result == UnityWebRequest.Result.Success)
-            {
-                var resp = JsonUtility.FromJson<AssignResponse>(req.downloadHandler.text);
-                assignedId = resp.participant_id;
-                assignedNumber = resp.participant_number;
-
-                PlayerPrefs.SetString(PrefId, assignedId);
-                PlayerPrefs.SetInt(PrefNum, assignedNumber);
-                PlayerPrefs.Save();
-
-                Debug.Log($"Назначен участник {assignedId} (#{assignedNumber}).");
-            }
-            else
-            {
-                // Сервер недоступен — offline-режим. Данные пойдут в локальный файл (см. SaveLocalFallback).
-                assignedId = Guid.NewGuid().ToString();
-                assignedNumber = Mathf.Max(1, offlineParticipantNumber);
-                Debug.LogWarning($"Сервер недоступен ({req.error}). OFFLINE-режим: телеметрия будет сохранена " +
-                                 $"локально в {Application.persistentDataPath}/telemetry/. id={assignedId}, #{assignedNumber}.");
-            }
         }
+        catch (System.Exception e)
+        {
+            Debug.LogError($"Не смог создать запрос (вероятно, HTTP заблокирован Unity): {e.Message}");
+            FallbackToOffline();
+            yield break;
+        }
+
+        yield return req.SendWebRequest();
+
+        if (req.result == UnityWebRequest.Result.Success)
+        {
+            var resp = JsonUtility.FromJson<AssignResponse>(req.downloadHandler.text);
+            assignedId = resp.participant_id;
+            assignedNumber = resp.participant_number;
+
+            PlayerPrefs.SetString(PrefId, assignedId);
+            PlayerPrefs.SetInt(PrefNum, assignedNumber);
+            PlayerPrefs.Save();
+
+            Debug.Log($"Назначен участник {assignedId} (#{assignedNumber}).");
+        }
+        else
+        {
+            Debug.LogWarning($"Сервер недоступен ({req.error}). OFFLINE-режим.");
+            FallbackToOffline();
+        }
+
+        req.Dispose();
+    }
+
+    private void FallbackToOffline()
+    {
+        assignedId = System.Guid.NewGuid().ToString();
+        assignedNumber = Mathf.Max(1, offlineParticipantNumber);
     }
 
     private void BuildParticipant()
@@ -238,41 +252,67 @@ public class SessionController : MonoBehaviour
             survey = answers,
         });
 
-        // Инкрементально: после каждого условия шлём весь объект — данные на сервере
-        // уже после первого прохода, даже если участник дальше бросит.
-        StartCoroutine(SendTelemetry());
-
         currentStep++;
         if (currentStep < order.Length)
+        {
+            // Не финальный шаг: отправляем в фоне и сразу запускаем следующее условие.
+            // Даже если отправка не дойдёт, в финале мы пошлём всё ещё раз и дождёмся.
+            StartCoroutine(SendTelemetry(maxAttempts: 1));
             BeginCurrentCondition();
+        }
         else
-            ShowFinished();
+        {
+            // Финальный шаг: ждём подтверждения сохранения, потом показываем экран.
+            StartCoroutine(FinalizeAndShowFinished());
+        }
     }
 
-    private IEnumerator SendTelemetry()
+    private IEnumerator FinalizeAndShowFinished()
+    {
+        // Показываем «Сохраняем...», скрываем всё остальное
+        Time.timeScale = 0f;
+        if (loadingPanel != null) loadingPanel.SetActive(true);
+        if (finishedPanel != null) finishedPanel.SetActive(false);
+
+        // До 3 попыток с паузами между ними
+        yield return SendTelemetry(maxAttempts: 3);
+
+        if (loadingPanel != null) loadingPanel.SetActive(false);
+        if (finishedPanel != null) finishedPanel.SetActive(true);
+        Debug.Log("Эксперимент завершён.");
+    }
+
+
+    private IEnumerator SendTelemetry(int maxAttempts)
     {
         string url = serverUrl.TrimEnd('/') + "/telemetry";
         string json = JsonUtility.ToJson(participant);
 
-        using (var req = new UnityWebRequest(url, "POST"))
+        for (int attempt = 1; attempt <= maxAttempts; attempt++)
         {
-            req.uploadHandler = new UploadHandlerRaw(System.Text.Encoding.UTF8.GetBytes(json));
-            req.downloadHandler = new DownloadHandlerBuffer();
-            req.SetRequestHeader("Content-Type", "application/json");
-            req.SetRequestHeader("X-Study-Token", studyToken);
-
-            yield return req.SendWebRequest();
-
-            if (req.result != UnityWebRequest.Result.Success)
+            using (var req = new UnityWebRequest(url, "POST"))
             {
-                Debug.LogError($"Не удалось отправить телеметрию: {req.error}");
-                SaveLocalFallback();
+                req.uploadHandler = new UploadHandlerRaw(System.Text.Encoding.UTF8.GetBytes(json));
+                req.downloadHandler = new DownloadHandlerBuffer();
+                req.SetRequestHeader("Content-Type", "application/json");
+                req.SetRequestHeader("X-Study-Token", studyToken);
+
+                yield return req.SendWebRequest();
+
+                if (req.result == UnityWebRequest.Result.Success)
+                {
+                    Debug.Log($"Телеметрия отправлена (попытка {attempt}/{maxAttempts}, прогонов: {participant.runs.Count}).");
+                    yield break;
+                }
+                Debug.LogWarning($"Отправка не удалась (попытка {attempt}/{maxAttempts}): {req.error}");
             }
-            else
-            {
-                Debug.Log($"Телеметрия отправлена (прогонов: {participant.runs.Count}).");
-            }
+
+            // Не на последней попытке — короткая пауза перед повтором
+            if (attempt < maxAttempts)
+                yield return new WaitForSecondsRealtime(2f);
         }
+
+        Debug.LogError("Не удалось отправить телеметрию после всех попыток.");
     }
 
     private void SaveLocalFallback()
@@ -304,14 +344,5 @@ public class SessionController : MonoBehaviour
         Time.timeScale = 0f;
         if (finishedPanel != null) finishedPanel.SetActive(true);
         Debug.Log("Эксперимент завершён.");
-    }
-
-    // Привязать к кнопке «Выйти» на финальном экране
-    public void QuitApplication()
-    {
-        Application.Quit();
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#endif
     }
 }

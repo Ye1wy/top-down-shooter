@@ -9,6 +9,10 @@ public class GameFlowManager : MonoBehaviour
     [SerializeField] private GameObject startPanel;
     [SerializeField] private GameObject pausePanel;
 
+    [Header("Сдача (новое)")]
+    [SerializeField] private GameObject inGameHud;         // HUD с кнопкой "Завершить", виден во время игры
+    [SerializeField] private GameObject confirmGiveUpPanel; // Модал "Вы уверены?"
+
     [Header("Ссылки на игрока")]
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private PlayerShooting playerShooting;
@@ -24,6 +28,8 @@ public class GameFlowManager : MonoBehaviour
 
         if (startPanel != null) startPanel.SetActive(true);
         if (pausePanel != null) pausePanel.SetActive(false);
+        if (inGameHud != null) inGameHud.SetActive(false);
+        if (confirmGiveUpPanel != null) confirmGiveUpPanel.SetActive(false);
 
         SetPlayerControl(false);
         isPlaying = false;
@@ -40,6 +46,8 @@ public class GameFlowManager : MonoBehaviour
         Time.timeScale = 0f;
         if (pausePanel != null) pausePanel.SetActive(false);
         if (startPanel != null) startPanel.SetActive(true);
+        if (inGameHud != null) inGameHud.SetActive(false);
+        if (confirmGiveUpPanel != null) confirmGiveUpPanel.SetActive(false);
         SetPlayerControl(false);
     }
 
@@ -58,13 +66,13 @@ public class GameFlowManager : MonoBehaviour
     public void StartGame()
     {
         if (startPanel != null) startPanel.SetActive(false);
+        if (inGameHud != null) inGameHud.SetActive(true);
         SetPlayerControl(true);
         Time.timeScale = 1f;
         isPlaying = true;
 
         AudioManager.Instance?.PlayMusic();
 
-        // Секундомер сессии стартует ИМЕННО здесь, а не при загрузке сцены
         if (TelemetryManager.Instance != null)
             TelemetryManager.Instance.BeginSession();
     }
@@ -115,6 +123,31 @@ public class GameFlowManager : MonoBehaviour
 
         if (SessionController.Instance != null && stats != null)
             SessionController.Instance.OnConditionEnded(stats);
+    }
+
+    public void RequestGiveUp()
+    {
+        if (!isPlaying) return;
+
+        // Паузим, но не показываем стандартную панель паузы — только confirm
+        Time.timeScale = 0f;
+        SetPlayerControl(false);
+        if (confirmGiveUpPanel != null) confirmGiveUpPanel.SetActive(true);
+        if (inGameHud != null) inGameHud.SetActive(false);
+    }
+
+    public void CancelGiveUp()
+    {
+        if (confirmGiveUpPanel != null) confirmGiveUpPanel.SetActive(false);
+        if (inGameHud != null) inGameHud.SetActive(true);
+        Time.timeScale = 1f;
+        SetPlayerControl(true);
+    }
+
+    public void ConfirmGiveUp()
+    {
+        if (confirmGiveUpPanel != null) confirmGiveUpPanel.SetActive(false);
+        GiveUp(); // существующий метод — засчитает quit, покажет опрос
     }
 
     private void SetPlayerControl(bool enabled)
